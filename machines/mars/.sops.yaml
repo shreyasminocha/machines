@@ -1,0 +1,9 @@
+keys:
+  - &admin_shreyas D3B004DE027641205F5C4F37AD8501B1B424968F
+  - &server_mars age13fys90vktsaj6fl28p6s48dzxpydv34gtaxxgfnmc2gy2kd5v94shnnrgm
+creation_rules:
+  - key_groups:
+      - pgp:
+          - *admin_shreyas
+        age:
+          - *server_mars

@@ -1,0 +1,8 @@
+keys:
+  - &admin_shreyas age152503vl4ehkt94ysqze92svn5dpgy4nd8xgfdyfjnturksfwp3qs56guas
+  - &server_roux age1smy55yj64l68tlv4ldauwl5d6vmmlu229pswacvnskm7h07r0c5qgn3yyn
+creation_rules:
+  - key_groups:
+      - age:
+          - *admin_shreyas
+          - *server_roux

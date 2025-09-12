@@ -1,0 +1,3 @@
+{
+  catppuccin.kvantum.enable = true;
+}
