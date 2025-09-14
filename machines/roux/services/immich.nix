@@ -4,7 +4,7 @@
   ...
 }:
 let
-  version = "v1.141.1";
+  version = "v1.142.0";
   immich-secret = "services/immich/env";
   container-redis-socket = "/var/run/redis/redis.sock";
 in
