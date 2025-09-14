@@ -26,7 +26,7 @@ let
     # ./markdownlint.nix
     ./material-icon-theme.nix
     # ./mypy.nix
-    # ./nix.nix
+    ./nix.nix
     ./prettier.nix
     ./python.nix
     # ./rewrap.nix
@@ -68,9 +68,6 @@ in
       # latex
       tecosaur.latex-utilities
       mblode.zotero
-
-      # nix
-      bbenoist.nix
 
       skellock.just
       tamasfe.even-better-toml

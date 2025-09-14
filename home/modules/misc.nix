@@ -19,6 +19,7 @@
       backblaze-b2
       qrencode
       bleachbit
+      ouch
     ]
     ++ lib.optionals gui [
       kdePackages.dolphin

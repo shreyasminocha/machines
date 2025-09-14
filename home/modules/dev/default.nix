@@ -9,6 +9,7 @@
     ./python.nix
     ./js.nix
     ./rust.nix
+    ./markdown.nix
     ./nix.nix
     ./latex.nix
     ./typst.nix

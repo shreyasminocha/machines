@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   pkgs,
   ...
 }:
@@ -7,8 +8,6 @@
   home.packages = with pkgs; [
     xdg-utils
   ];
-
-  # home.sessionVariables.GTK_USE_PORTAL = 1;
 
   xdg = {
     enable = true;
@@ -48,21 +47,50 @@
       {
         enable = true;
         associations.added = {
+          "x-scheme-handler/http" = [ librewolf ];
+          "x-scheme-handler/https" = [ librewolf ];
           "x-scheme-handler/mailto" = [ "thunderbird.desktop" ];
+          "x-scheme-handler/about" = [ librewolf ];
+          "x-scheme-handler/unknown" = [ librewolf ];
         };
         defaultApplications = {
           "text/html" = librewolf;
+          "inode/directory" = dolphin;
+
           "image/png" = imv;
+          "image/gif" = imv;
           "image/jpeg" = imv;
-          "application/pdf" = okular;
+          "image/webp" = imv;
+          "image/bmp" = imv;
+          "image/vnd.microsoft.icon" = imv;
+
           "video/mp4" = mpv;
+          "video/webm" = mpv;
+          "video/ogg" = mpv;
+
           "audio/mpeg" = mpv;
           "audio/flac" = mpv;
+          "audio/ogg" = mpv;
+
+          "application/pdf" = okular;
           "application/x-tar" = ark;
           "application/gzip" = ark;
-          "inode/directory" = dolphin;
           "text/markdown" = "typora.desktop";
         };
+      };
+    userDirs =
+      let
+        homeDir = config.home.homeDirectory;
+      in
+      {
+        enable = true;
+
+        desktop = "${homeDir}/desktop";
+        documents = "${homeDir}/documents";
+        download = "${homeDir}/documents/downloads";
+        music = "${homeDir}/hoard/music";
+        pictures = "${homeDir}/documents/misc-images";
+        videos = "${homeDir}/hoard/vid";
       };
   };
 }

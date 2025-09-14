@@ -17,6 +17,12 @@
 
   home.file = { };
 
+  home.sessionVariables = {
+    BROWSER = "librewolf";
+    TERM = "kitty";
+    # GTK_USE_PORTAL = 1;
+  };
+
   home.shell.enableFishIntegration = true;
 
   programs.home-manager.enable = true;

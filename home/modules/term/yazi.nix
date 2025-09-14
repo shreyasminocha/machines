@@ -4,10 +4,23 @@
     enable = true;
     enableFishIntegration = true;
     plugins = with pkgs.yaziPlugins; {
-      inherit yatline yatline-catppuccin git;
+      inherit
+        yatline
+        yatline-catppuccin
+        toggle-pane
+        git
+        mediainfo
+        ouch
+        glow
+        ;
     };
     settings = {
       mgr = {
+        ratio = [
+          0
+          3
+          5
+        ];
         show_hidden = true;
       };
       plugin.prepend_fetchers = [
