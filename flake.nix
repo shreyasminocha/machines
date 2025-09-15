@@ -159,7 +159,7 @@
             home-manager.sharedModules = [
               inputs.hyprland.homeManagerModules.default
               inputs.catppuccin.homeModules.catppuccin
-              inputs.plasma-manager.homeManagerModules.plasma-manager
+              inputs.plasma-manager.homeModules.plasma-manager
               inputs.misumisumi-flake.homeManagerModules.default
 
               secrets.homeManagerModules.mars
