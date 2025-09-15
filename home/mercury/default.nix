@@ -1,13 +1,7 @@
-{
-  config,
-  pkgs,
-  lib,
-  ...
-}:
-{
+_: {
   imports = [
-    ../modules/term.nix
-    ../modules/git.nix
+    ../modules/term
+    ../modules/dev/git.nix
   ];
 
   home.file = { };
