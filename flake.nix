@@ -100,24 +100,12 @@
       nixpkgs,
       nixpkgs-unstable,
       secrets,
-      impermanence,
-      nix-on-droid,
-      nixos-hardware,
-      disko,
       home-manager,
-      dolphin-overlay,
-      hyprland,
-      catppuccin,
-      sops-nix,
-      poetry2nix,
-      nix-vscode-extensions,
-      plasma-manager,
-      misumisumi-flake,
       ...
     }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system}.extend poetry2nix.overlays.default;
+      pkgs = nixpkgs.legacyPackages.${system}.extend inputs.poetry2nix.overlays.default;
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
       mypkgs = pkgs.callPackage ./pkgs { };
     in
@@ -137,12 +125,12 @@
         };
 
         modules = [
-          nixos-hardware.nixosModules.framework-11th-gen-intel
-          impermanence.nixosModules.impermanence
-          disko.nixosModules.disko
-          catppuccin.nixosModules.catppuccin
+          inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
+          inputs.impermanence.nixosModules.impermanence
+          inputs.disko.nixosModules.disko
+          inputs.catppuccin.nixosModules.catppuccin
 
-          sops-nix.nixosModules.sops
+          inputs.sops-nix.nixosModules.sops
 
           {
             nixpkgs.overlays =
@@ -150,9 +138,9 @@
                 myoverlays = import ./overlays;
               in
               [
-                dolphin-overlay.overlays.default
-                nix-vscode-extensions.overlays.default
-                misumisumi-flake.overlays.default
+                inputs.dolphin-overlay.overlays.default
+                inputs.nix-vscode-extensions.overlays.default
+                inputs.misumisumi-flake.overlays.default
                 myoverlays.overlays.default
               ];
           }
@@ -169,26 +157,30 @@
             home-manager.users.shreyas = import ./home/mars;
 
             home-manager.sharedModules = [
-              hyprland.homeManagerModules.default
-              catppuccin.homeModules.catppuccin
-              plasma-manager.homeManagerModules.plasma-manager
-              misumisumi-flake.homeManagerModules.default
+              inputs.hyprland.homeManagerModules.default
+              inputs.catppuccin.homeModules.catppuccin
+              inputs.plasma-manager.homeManagerModules.plasma-manager
+              inputs.misumisumi-flake.homeManagerModules.default
 
               secrets.homeManagerModules.mars
               secrets.homeManagerModules.email-accounts
               secrets.homeManagerModules.music
             ];
 
-            home-manager.extraSpecialArgs = {
-              inherit
-                system
-                inputs
-                pkgs-unstable
-                mypkgs
-                catppuccin
-                ;
-              gui = true; # TODO try to move this into `./home/mars/default.nix`
-            };
+            home-manager.extraSpecialArgs =
+              let
+                inherit (inputs) catppuccin;
+              in
+              {
+                inherit
+                  system
+                  inputs
+                  pkgs-unstable
+                  mypkgs
+                  catppuccin
+                  ;
+                gui = true; # TODO try to move this into `./home/mars/default.nix`
+              };
           }
         ];
       };
@@ -198,7 +190,7 @@
         specialArgs = { inherit pkgs-unstable mypkgs; };
 
         modules = [
-          nixos-hardware.nixosModules.hardkernel-odroid-h3
+          inputs.nixos-hardware.nixosModules.hardkernel-odroid-h3
 
           {
             # IIRC this was for sonarr or radarr at some point
@@ -217,7 +209,7 @@
             home-manager.useUserPackages = true;
 
             home-manager.sharedModules = [
-              catppuccin.homeModules.catppuccin
+              inputs.catppuccin.homeModules.catppuccin
 
               secrets.homeManagerModules.music
             ];
@@ -230,7 +222,7 @@
             };
           }
 
-          sops-nix.nixosModules.sops
+          inputs.sops-nix.nixosModules.sops
         ];
       };
 
@@ -244,7 +236,7 @@
         modules = [ ./home/roux ];
       };
 
-      nixOnDroidConfigurations.mercury = nix-on-droid.lib.nixOnDroidConfiguration {
+      nixOnDroidConfigurations.mercury = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
         pkgs = import nixpkgs { system = "aarch64-linux"; };
         modules = [
           ./machines/mercury
