@@ -2,6 +2,9 @@
 {
   programs.neovim = {
     enable = true;
+    viAlias = true;
+    vimAlias = true;
+    vimdiffAlias = true;
     plugins = with pkgs.vimPlugins; [
       {
         plugin = nvim-treesitter;
@@ -28,7 +31,7 @@
           lua << EOF
             require("lualine").setup({
               options = {
-                disabled_filetypes = {"NvimTree"}
+                disabled_filetypes = { "NvimTree" }
               }
             })
           EOF
@@ -69,11 +72,13 @@
       vim.opt.expandtab = true
       vim.opt.shiftwidth = 4
       vim.opt.autoindent = true
-      vim.opt.wildmode = {longest, list}
+      vim.opt.wildmode = { longest, list }
       vim.opt.clipboard = unnamedplus
       vim.opt.swapfile = false
 
       vim.opt.showmode = false
+
+      vim.opt.spell = true
 
       vim.keymap.set("", "<C-b>", "<cmd>NvimTreeToggle<cr>", {
         desc = "Toggle tree"
@@ -97,7 +102,7 @@
       })
 
       vim.filetype.add({
-        pattern = { [".*/hyprland%.conf"] = "hyprlang" },
+        pattern = { [ ".*/hyprland%.conf" ] = "hyprlang" },
       })
     '';
   };

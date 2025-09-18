@@ -44,6 +44,8 @@
           "New;To Read|In Progress;In Progress";
         "extensions.zotero.zotero-reading-list.statuses-and-icons-list" =
           "To Read;In Progress;Read;Not Reading;To Read Eventually|📙;📖;📗;📕;☁️";
+
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
 
       extensions = with pkgs.zotero-addons; [
@@ -51,5 +53,15 @@
         zotero-reading-list
       ];
     };
+  };
+
+  # TOFIX: this doesn't seem to work yet
+  home.file.".zotero/zotero/default/chrome/userChrome.css" = {
+    enable = gui;
+    text = ''
+      .titlebar-buttonbox-container {
+        display: none;
+      }
+    '';
   };
 }

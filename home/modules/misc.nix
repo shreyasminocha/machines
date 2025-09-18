@@ -20,20 +20,25 @@
       qrencode
       bleachbit
       ouch
-    ]
-    ++ lib.optionals gui [
-      kdePackages.dolphin
-      kdePackages.kio
-      kdePackages.kio-fuse
-      kdePackages.kio-extras
-      kdePackages.audiocd-kio
-
-      kdePackages.okular
-      kdePackages.ark
-      kdePackages.filelight
-      libreoffice-qt
       pandoc
-    ];
+    ]
+    ++ lib.optionals gui (
+      with kdePackages;
+      [
+        dolphin
+        kio
+        kio-fuse
+        kio-extras
+        audiocd-kio
+
+        okular
+        ark
+        filelight
+
+        libreoffice-qt
+        calibre
+      ]
+    );
 
   programs.sioyek = {
     enable = gui;

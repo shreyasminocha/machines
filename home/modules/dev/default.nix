@@ -23,20 +23,14 @@
     apptainer
     comma
     hyperfine
+    tealdeer
+    tokei
   ];
 
   programs.gh.enable = true;
 
-  programs.gitui = {
+  programs.lazygit = {
     enable = true;
-    keyConfig = ''
-      move_left: Some(( code: Char('h'), modifiers: "")),
-      move_right: Some(( code: Char('l'), modifiers: "")),
-      move_up: Some(( code: Char('k'), modifiers: "")),
-      move_down: Some(( code: Char('j'), modifiers: "")),
-
-      stash_open: Some(( code: Char('l'), modifiers: "")),
-    '';
   };
-  catppuccin.gitui.enable = true;
+  catppuccin.lazygit.enable = true;
 }

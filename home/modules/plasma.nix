@@ -49,7 +49,7 @@
   };
 
   programs.plasma = {
-    enable = true;
+    enable = true; # TODO: this doesn't pull the DE, does it?
     shortcuts = { };
     configFile = { };
     dataFile = { };

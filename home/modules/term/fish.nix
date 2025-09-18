@@ -15,7 +15,6 @@
       "nt" = "npm test";
       "nr" = "npm run";
       "is-this-thing-on" = "ping -c 3 example.com";
-      "vim" = "hx";
       "pbcopy" = "wl-copy";
       "pbpaste" = "wl-paste";
       "rgi" = "rg -i";
