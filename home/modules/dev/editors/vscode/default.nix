@@ -1,16 +1,14 @@
-{
-  pkgs,
-  pkgs-unstable,
-  ...
-}:
+{ pkgs, pkgs-unstable, ... }:
 let
-  extensions = import ./extensions { inherit pkgs; };
+  # TODO: switch—currently -unstable because the jupyter ext had issues with the stable
+  vscode = pkgs-unstable.vscodium;
+  extensions = import ./extensions { inherit pkgs vscode; };
   settings = import ./settings { inherit pkgs; };
 in
 {
   programs.vscode = {
     enable = true;
-    package = pkgs-unstable.vscodium;
+    package = vscode;
     mutableExtensionsDir = false;
     profiles.default = {
       inherit (extensions) extensions;

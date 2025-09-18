@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ vscode-marketplace, ... }:
 {
-  extensions = with pkgs.vscode-marketplace; [
+  extensions = with vscode-marketplace; [
     rust-lang.rust-analyzer
   ];
   settings = {

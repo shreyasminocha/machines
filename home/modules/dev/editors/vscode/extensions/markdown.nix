@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ vscode-marketplace, ... }:
 {
-  extensions = with pkgs.vscode-marketplace; [
+  extensions = with vscode-marketplace; [
     yzhang.markdown-all-in-one
   ];
   settings = {

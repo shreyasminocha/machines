@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ vscode-marketplace, ... }:
 {
-  extensions = with pkgs.vscode-marketplace; [ ];
+  extensions = [ ];
   settings = {
     "mypy-type-checker.importStrategy" = "fromEnvironment";
     "mypy-type-checker.path" = [

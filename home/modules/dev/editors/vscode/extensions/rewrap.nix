@@ -1,5 +1,6 @@
-_: {
-  extensions = with pkgs.vscode-marketplace; [
+{ vscode-marketplace, ... }:
+{
+  extensions = with vscode-marketplace; [
     stkb.rewrap
   ];
   settings = {

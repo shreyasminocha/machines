@@ -1,7 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, vscode, ... }:
 let
+  inherit (pkgs.forVSCodeVersion vscode.version) vscode-marketplace;
+
   files = [
-    ./copilot.nix
+    # ./copilot.nix
     # ./cpp.nix
     ./cspell.nix
     ./css.nix
@@ -23,7 +25,7 @@ let
     # ./lilypond.nix
     # ./ltex.nix
     ./markdown.nix
-    # ./markdownlint.nix
+    ./markdownlint.nix
     ./material-icon-theme.nix
     # ./mypy.nix
     ./nix.nix
@@ -39,12 +41,12 @@ let
     ./ty.nix
     ./typescript.nix
   ];
-  otherExtensions = map (file: import file { inherit pkgs; }) files;
+  otherExtensions = map (file: import file { inherit pkgs vscode-marketplace; }) files;
 in
 {
   extensions =
     builtins.concatLists (map (x: x.extensions) otherExtensions)
-    ++ (with pkgs.vscode-marketplace; [
+    ++ (with vscode-marketplace; [
       catppuccin.catppuccin-vsc
       # ahmadawais.shades-of-purple
       # arcticicestudio.nord-visual-studio-code
@@ -58,16 +60,7 @@ in
       mohammadbaqer.better-folding
       ms-vscode.hexeditor
 
-      ms-vscode.wordcount
-
-      # python
-      ms-python.python
-      ms-python.black-formatter
-      ms-python.debugpy
-
-      # latex
-      tecosaur.latex-utilities
-      mblode.zotero
+      # ms-vscode.wordcount
 
       skellock.just
       tamasfe.even-better-toml

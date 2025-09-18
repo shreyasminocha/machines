@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, vscode-marketplace, ... }:
 {
-  extensions = with pkgs.vscode-marketplace; [
+  extensions = with vscode-marketplace; [
     valentjn.vscode-ltex
   ];
   settings = {

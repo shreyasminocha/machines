@@ -1,7 +1,10 @@
-_: {
-  extensions = [ ];
+{ vscode-marketplace, ... }:
+{
+  extensions = with vscode-marketplace; [
+    tecosaur.latex-utilities
+    mblode.zotero
+  ];
   settings = {
-    "latex.build.executable" = "/usr/bin/pdflatex";
     "latex.lint.onChange" = true;
   };
 }

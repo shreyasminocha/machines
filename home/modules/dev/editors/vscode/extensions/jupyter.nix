@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ vscode-marketplace, ... }:
 {
-  extensions = with pkgs.vscode-marketplace; [
+  extensions = with vscode-marketplace; [
     ms-toolsai.jupyter
     ms-toolsai.jupyter-keymap
     ms-toolsai.jupyter-renderers
@@ -10,10 +10,5 @@
   settings = {
     "jupyter.askForKernelRestart" = false;
     "jupyter.experiments.enabled" = false;
-    # TODO: hmm
-    "jupyter.widgetScriptSources" = [
-      "jsdelivr.com"
-      "unpkg.com"
-    ];
   };
 }

@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ vscode-marketplace, ... }:
 {
-  extensions = with pkgs.vscode-marketplace; [
+  extensions = with vscode-marketplace; [
     jeandeaual.lilypond-syntax
     lhl2617.lilypond-formatter
     lhl2617.lilypond-pdf-preview
