@@ -48,11 +48,11 @@
     fsType = "ext4";
   };
 
-  # swapDevices = [
-  #{
-  #  device = "zroot/swap";
-  #}
-  # ];
+  swapDevices = [
+    # {
+    #   device = "zroot/swap";
+    # }
+  ];
 
   services.zfs = {
     autoScrub.enable = true;
@@ -70,7 +70,6 @@
     enable = true;
     hideMounts = true;
     directories = [
-      # "/nix"
       "/mnt"
       "/lost+found"
 
@@ -104,8 +103,6 @@
     files = [
       "/etc/machine-id"
       "/etc/resolv.conf"
-      "/etc/.pwd.lock" # what is this
-      "/etc/printcap" # what is this
       "/etc/adjtime"
 
       "/var/lib/systemd/random-seed"

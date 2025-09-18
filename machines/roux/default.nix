@@ -14,8 +14,9 @@
 
     ./tailscale.nix
     ./backups.nix
-    ./shreyas.nix
     ./services
+
+    ./shreyas
   ];
 
   nix.settings.experimental-features = [

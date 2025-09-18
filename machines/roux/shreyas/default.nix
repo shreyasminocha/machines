@@ -1,5 +1,10 @@
 { pkgs, ... }:
 {
+  imports = [
+    ./home.nix
+    ../../../modules/gaming.nix
+  ];
+
   users.users.shreyas = {
     isNormalUser = true;
     extraGroups = [

@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   pkgs,
   ...
@@ -12,7 +13,6 @@
     ./boot.nix
     ./networking.nix
 
-    ./shreyas.nix
     ./backups.nix
 
     ./i18n.nix
@@ -20,6 +20,8 @@
     ./fonts.nix
     ./printing.nix
     ./displaylink.nix
+
+    ./shreyas
   ];
 
   services.pipewire = {
@@ -68,6 +70,18 @@
 
     gc.dates = "weekly";
   };
+
+  nixpkgs.overlays =
+    let
+      myoverlays = import ../../overlays;
+    in
+    [
+      inputs.nix-vscode-extensions.overlays.default
+      inputs.dolphin-overlay.overlays.default
+      inputs.misumisumi-flake.overlays.default
+
+      myoverlays.overlays.default
+    ];
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:

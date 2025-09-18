@@ -13,7 +13,8 @@ let
 in
 {
   imports = [
-    ../../modules/gaming.nix
+    ./home.nix
+    ../../../modules/gaming.nix
   ];
 
   sops.defaultSopsFile = "/persist/etc/sops/secrets.yaml";

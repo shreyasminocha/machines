@@ -34,8 +34,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # > Do not override Hyprland’s `nixpkgs` input unless you know what you are doing.
-    # > Doing so will render the cache useless, since you’re building from a different Nixpkgs commit.
+    # > Do not override Hyprland's `nixpkgs` input unless you know what you are doing.
+    # > Doing so will render the cache useless, since you're building from a different Nixpkgs commit.
     hyprland = {
       url = "github:hyprwm/Hyprland?ref=v0.48.1";
       # url = "github:hyprwm/Hyprland?ref=v${hyprland-version}";
@@ -99,132 +99,65 @@
       self,
       nixpkgs,
       nixpkgs-unstable,
+      nix-on-droid,
       secrets,
       home-manager,
       ...
     }:
     let
       system = "x86_64-linux";
-      pkgs = nixpkgs.legacyPackages.${system}.extend inputs.poetry2nix.overlays.default;
+      pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-      mypkgs = pkgs.callPackage ./pkgs { };
+      # TODO: get rid of this overlay
+      mypkgs = (pkgs.extend inputs.poetry2nix.overlays.default).callPackage ./pkgs { };
     in
     {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
 
       packages.${system}.default = mypkgs;
 
-      nixosConfigurations.mars = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit
-            inputs
-            system
-            pkgs-unstable
-            mypkgs
-            ;
+      nixosConfigurations =
+        let
+          specialArgs = {
+            inherit
+              inputs
+              system
+              pkgs-unstable
+              mypkgs
+              secrets
+              ;
+          };
+          commonModules = [
+            home-manager.nixosModules.home-manager
+
+            inputs.sops-nix.nixosModules.sops
+            secrets.nixosModules.networks
+          ];
+        in
+        {
+          mars = nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+
+            modules = commonModules ++ [
+              inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
+              inputs.disko.nixosModules.disko
+              inputs.impermanence.nixosModules.impermanence
+              inputs.catppuccin.nixosModules.catppuccin
+
+              ./machines/mars
+            ];
+          };
+
+          roux = nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+
+            modules = commonModules ++ [
+              inputs.nixos-hardware.nixosModules.hardkernel-odroid-h3
+
+              ./machines/roux
+            ];
+          };
         };
-
-        modules = [
-          inputs.nixos-hardware.nixosModules.framework-11th-gen-intel
-          inputs.impermanence.nixosModules.impermanence
-          inputs.disko.nixosModules.disko
-          inputs.catppuccin.nixosModules.catppuccin
-
-          inputs.sops-nix.nixosModules.sops
-
-          {
-            nixpkgs.overlays =
-              let
-                myoverlays = import ./overlays;
-              in
-              [
-                inputs.dolphin-overlay.overlays.default
-                inputs.nix-vscode-extensions.overlays.default
-                inputs.misumisumi-flake.overlays.default
-                myoverlays.overlays.default
-              ];
-          }
-
-          ./machines/mars
-          secrets.nixosModules.networks
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "bak";
-
-            home-manager.users.shreyas = import ./home/mars;
-
-            home-manager.sharedModules = [
-              inputs.hyprland.homeManagerModules.default
-              inputs.catppuccin.homeModules.catppuccin
-              inputs.plasma-manager.homeModules.plasma-manager
-              inputs.misumisumi-flake.homeManagerModules.default
-
-              secrets.homeManagerModules.mars
-              secrets.homeManagerModules.email-accounts
-              secrets.homeManagerModules.music
-            ];
-
-            home-manager.extraSpecialArgs =
-              let
-                inherit (inputs) catppuccin;
-              in
-              {
-                inherit
-                  system
-                  inputs
-                  pkgs-unstable
-                  mypkgs
-                  catppuccin
-                  ;
-                gui = true; # TODO try to move this into `./home/mars/default.nix`
-              };
-          }
-        ];
-      };
-
-      nixosConfigurations.roux = nixpkgs.lib.nixosSystem {
-        inherit system;
-        specialArgs = { inherit pkgs-unstable mypkgs; };
-
-        modules = [
-          inputs.nixos-hardware.nixosModules.hardkernel-odroid-h3
-
-          {
-            # IIRC this was for sonarr or radarr at some point
-            nixpkgs.config.permittedInsecurePackages = [
-              "dotnet-sdk-6.0.428"
-              "aspnetcore-runtime-6.0.36"
-            ];
-          }
-
-          ./machines/roux
-          secrets.nixosModules.roux
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.sharedModules = [
-              inputs.catppuccin.homeModules.catppuccin
-
-              secrets.homeManagerModules.music
-            ];
-
-            home-manager.users.shreyas = import ./home/roux;
-
-            home-manager.extraSpecialArgs = {
-              inherit inputs pkgs-unstable mypkgs;
-              gui = false;
-            };
-          }
-
-          inputs.sops-nix.nixosModules.sops
-        ];
-      };
 
       homeConfigurations.shreyas-mars = home-manager.lib.homeManagerConfiguration {
         pkgs = [ ];
@@ -236,7 +169,7 @@
         modules = [ ./home/roux ];
       };
 
-      nixOnDroidConfigurations.mercury = inputs.nix-on-droid.lib.nixOnDroidConfiguration {
+      nixOnDroidConfigurations.mercury = nix-on-droid.lib.nixOnDroidConfiguration {
         pkgs = import nixpkgs { system = "aarch64-linux"; };
         modules = [
           ./machines/mercury
