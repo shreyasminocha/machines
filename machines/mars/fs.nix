@@ -16,7 +16,6 @@
   };
 
   fileSystems."/boot" = {
-    #    device = "UUID=8DEA-7CF6";
     fsType = "vfat";
     options = [
       "fmask=0077"
@@ -47,12 +46,6 @@
     device = "UUID=99b99604-0b95-49c7-a61c-3f0738fcb89f";
     fsType = "ext4";
   };
-
-  swapDevices = [
-    # {
-    #   device = "zroot/swap";
-    # }
-  ];
 
   services.zfs = {
     autoScrub.enable = true;

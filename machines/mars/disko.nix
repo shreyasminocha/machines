@@ -17,6 +17,14 @@
                 mountOptions = [ "nofail" ];
               };
             };
+            swap = {
+              size = "32G";
+              content = {
+                type = "swap";
+                discardPolicy = "both";
+                resumeDevice = true;
+              };
+            };
             zfs = {
               size = "100%";
               content = {
@@ -68,23 +76,6 @@
               options.mountpoint = path;
               mountpoint = path;
             };
-
-          "swap" = {
-            type = "zfs_volume";
-            size = "32G";
-            content = {
-              type = "swap";
-            };
-            options = {
-              volblocksize = "4096";
-              compression = "zle";
-              logbias = "throughput";
-              sync = "always";
-              primarycache = "metadata";
-              secondarycache = "none";
-              "com.sun:auto-snapshot" = "false";
-            };
-          };
 
           "home" =
             let
