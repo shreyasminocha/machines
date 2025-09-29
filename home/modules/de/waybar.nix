@@ -7,7 +7,7 @@
         position = "top";
         height = 24;
         modules-left = [
-          "hyprland/workspaces"
+          # "hyprland/workspaces"
         ];
         modules-right = [
           "cpu"

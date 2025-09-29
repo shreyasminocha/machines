@@ -32,13 +32,21 @@ in
     hashedPasswordFile = config.sops.secrets.${login-password}.path;
   };
 
-  # services.uwsm = {
-  #   enable = true;
-  #   session.command = pkgs.writeShellScript "hyprland-start" ''
-  #     export GTK_USE_PORTAL=1
-  #     exec Hyprland
-  #   '';
-  # };
+  programs.uwsm = {
+    enable = true;
+    waylandCompositors = {
+      hyprland = {
+        prettyName = "Hyprland";
+        comment = "hyprland";
+        binPath = "/run/current-system/sw/bin/Hyprland";
+      };
+      niri = {
+        prettyName = "niri";
+        comment = "niri";
+        binPath = "/run/current-system/sw/bin/niri-session";
+      };
+    };
+  };
 
   # > Required:
   # >
@@ -67,6 +75,9 @@ in
   programs.nix-ld.enable = true;
 
   environment.wordlist.enable = true;
+
+  catppuccin.grub.enable = true;
+  catppuccin.tty.enable = true;
 
   sops.secrets.${login-password} = {
     neededForUsers = true;

@@ -3,7 +3,7 @@
   programs.helix = {
     enable = true;
     package = pkgs.evil-helix;
-    defaultEditor = true;
+    defaultEditor = false;
     settings = {
       # theme = "catppuccin_macchiato";
       editor = {
@@ -21,6 +21,4 @@
     ];
   };
   catppuccin.helix.enable = true;
-
-  home.sessionVariables.EDITOR = "hx";
 }

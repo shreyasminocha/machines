@@ -15,6 +15,10 @@
 
   home-manager.sharedModules = [
     inputs.hyprland.homeManagerModules.default
+
+    inputs.niri.homeModules.niri
+
+    inputs.nixvim.homeModules.nixvim
     inputs.catppuccin.homeModules.catppuccin
     inputs.plasma-manager.homeManagerModules.plasma-manager
     inputs.misumisumi-flake.homeManagerModules.default
@@ -26,7 +30,7 @@
 
   home-manager.extraSpecialArgs =
     let
-      inherit (inputs) catppuccin;
+      inherit (inputs) nixvim catppuccin;
     in
     {
       inherit
@@ -34,6 +38,7 @@
         inputs
         pkgs-unstable
         mypkgs
+        nixvim
         catppuccin
         ;
       gui = true; # TODO try to move this into `./home/mars/default.nix`

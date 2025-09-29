@@ -103,8 +103,4 @@ in
       };
     };
   catppuccin.hyprland.enable = true;
-
-  home.file."${xkb-layout-path}" = {
-    source = ./xkb-layout.txt;
-  };
 }

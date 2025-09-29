@@ -1,10 +1,4 @@
-{ pkgs, ... }:
 {
-  home.packages = with pkgs; [
-    networkmanagerapplet
-    tailscale-systray
-  ];
-
   wayland.windowManager.hyprland.settings.exec-once = [
     "waybar"
     "nm-applet --indicator"

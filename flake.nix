@@ -47,6 +47,11 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     anyrun = {
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -55,6 +60,11 @@
 
     catppuccin = {
       url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

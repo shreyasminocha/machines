@@ -2,11 +2,17 @@
 {
   imports = [
     ./hypr
+
+    ./niri.nix
+    ./swaylock.nix
+
     ./fonts.nix
     ./i18n.nix
     ./xdg.nix
+    ./xkb.nix
     ./waybar.nix
     ./anyrun.nix
+    ./mako.nix
     ./gtk.nix
     ./kvantum.nix
   ];
@@ -14,7 +20,12 @@
   home.packages = with pkgs; [
     grimblast
     wl-clipboard
+    networkmanagerapplet
+    tailscale-systray
   ];
+
+  services.blueman-applet.enable = true;
+  services.network-manager-applet.enable = true;
 
   home.pointerCursor = {
     gtk.enable = true;
@@ -23,15 +34,4 @@
     name = "catppuccin-macchiato-dark-cursors";
     size = 16;
   };
-
-  services.blueman-applet.enable = true;
-  services.network-manager-applet.enable = true;
-
-  services.mako = {
-    enable = true;
-    settings = {
-      font = "Noto Sans 10";
-    };
-  };
-  catppuccin.mako.enable = true;
 }

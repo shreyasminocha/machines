@@ -1,20 +1,12 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   services.greetd = {
     enable = true;
     settings = {
-      default_session =
-        let
-          inherit (inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}) hyprland;
-        in
-        {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --sessions ${hyprland}/share/wayland-sessions";
-          user = "greeter";
-        };
+      default_session = {
+        command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember --remember-session --sessions niri-session";
+        user = "greeter";
+      };
     };
   };
 
