@@ -44,6 +44,10 @@
   programs.eza = lib.mkMerge [
     {
       enable = true;
+      icons = "auto";
+      extraOptions = [
+        "--binary" # size units
+      ];
     }
 
     (lib.mkIf ((builtins.getEnv "hostname") != "localhost") {

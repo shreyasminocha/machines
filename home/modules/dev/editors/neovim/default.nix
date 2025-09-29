@@ -112,6 +112,7 @@
       guess-indent.enable = true;
       trim.enable = true;
       toggleterm.enable = true;
+      gitsigns.enable = true;
 
       treesitter = {
         enable = true;

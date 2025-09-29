@@ -7,6 +7,9 @@
         position = "top";
         height = 24;
         modules-left = [
+          "niri/workspaces"
+          "niri/window"
+
           # "hyprland/workspaces"
         ];
         modules-right = [

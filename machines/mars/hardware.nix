@@ -33,7 +33,11 @@
     LIBVA_DRIVER_NAME = "iHD";
   };
 
-  services.thermald.enable = true;
+  services.logind.lidSwitch = "suspend-then-hibernate";
+  services.logind.lidSwitchExternalPower = "suspend";
+  services.logind.lidSwitchDocked = "suspend";
+
+  # services.thermald.enable = true;
 
   services.tlp = {
     enable = true;

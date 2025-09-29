@@ -56,7 +56,7 @@ in
     enable = true;
     package = hyprland.hyprland;
     portalPackage = hyprland.xdg-desktop-portal-hyprland;
-    withUWSM = true;
+    # withUWSM = true;
   };
 
   services.fprintd = {

@@ -25,6 +25,7 @@
     hyperfine
     tealdeer
     tokei
+    act
   ];
 
   programs.gh.enable = true;

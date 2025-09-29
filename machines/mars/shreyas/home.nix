@@ -17,6 +17,7 @@
     inputs.hyprland.homeManagerModules.default
 
     inputs.niri.homeModules.niri
+    # inputs.niri.homeModules.config
 
     inputs.nixvim.homeModules.nixvim
     inputs.catppuccin.homeModules.catppuccin
