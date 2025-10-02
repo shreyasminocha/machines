@@ -5,6 +5,7 @@
 
     ./niri.nix
     ./swaylock.nix
+    ./swayidle.nix
 
     ./fonts.nix
     ./i18n.nix

@@ -15,7 +15,7 @@
     secrets.homeManagerModules.music
   ];
 
-  home-manager.users.shreyas = import ../../../home/roux;
+  home-manager.users.shreyas = ../../../home/roux;
 
   home-manager.extraSpecialArgs = {
     inherit inputs pkgs-unstable mypkgs;

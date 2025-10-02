@@ -56,6 +56,7 @@
         defaultApplications = {
           "text/html" = librewolf;
           "inode/directory" = dolphin;
+          "inode/mount-point" = dolphin;
 
           "image/png" = imv;
           "image/gif" = imv;
@@ -65,12 +66,16 @@
           "image/vnd.microsoft.icon" = imv;
 
           "video/mp4" = mpv;
+          "video/mpeg" = mpv;
           "video/webm" = mpv;
           "video/ogg" = mpv;
+          "video/x-matroska" = mpv;
+          "video/quicktime" = mpv;
 
           "audio/mpeg" = mpv;
           "audio/flac" = mpv;
           "audio/ogg" = mpv;
+          "audio/x-wav" = mpv;
 
           "application/pdf" = okular;
           "application/x-tar" = ark;

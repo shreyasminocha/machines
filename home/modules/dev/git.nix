@@ -24,6 +24,8 @@
       yolo = "commit -m 'Update'";
       force-push = "push --force-with-lease";
       commit-count = "rev-list --count HEAD";
+      lazy = "!lazygit";
+      diffn = "diff --no-ext-diff";
     };
 
     ignores = [

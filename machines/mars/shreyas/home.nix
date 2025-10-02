@@ -11,7 +11,7 @@
   home-manager.useUserPackages = true;
   home-manager.backupFileExtension = "bak";
 
-  home-manager.users.shreyas = import ../../../home/mars;
+  home-manager.users.shreyas = ../../../home/mars;
 
   home-manager.sharedModules = [
     inputs.hyprland.homeManagerModules.default

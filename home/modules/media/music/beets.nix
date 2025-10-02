@@ -16,15 +16,11 @@
   };
 
   programs.beets.settings = {
-    library = "/var/music/library.db";
-    directory = "/var/music";
-
     import = {
       write = true;
       copy = true;
       # incremental = true;
       timid = true;
-      log = "/var/music/import.log";
     };
 
     musicbrainz = {
@@ -96,9 +92,6 @@
       "web"
     ];
 
-    # TODO: package this
-    pluginpath = [ "/home/shreyas/beetsplug/beetsplug" ];
-
     fetchart = {
       auto = "yes";
       cautious = true;
@@ -122,15 +115,6 @@
       max_file_size = 52428800;
     };
 
-    hook = {
-      hooks = [
-        {
-          event = "item_imported";
-          command = "beet artcollage -o /var/music/collage.jpg -s 100";
-        }
-      ];
-    };
-
     lastgenre = {
       count = 5;
       min_weight = 40;
@@ -141,24 +125,9 @@
     convert = {
       auto_keep = "yes";
       copy_album_art = "yes";
-      dest = "/var/music-mp3-v0";
       never_convert_lossy_files = "yes";
       delete_originals = false;
       quiet = true;
-      formats = {
-        mp3-v0 = {
-          command = "/var/music-mp3-v0/encode $source $dest";
-          extension = "mp3";
-        };
-      };
-    };
-
-    alternatives = {
-      mp3-v0 = {
-        directory = "/var/music-mp3-v0";
-        formats = "mp3-v0";
-        query = "";
-      };
     };
 
     copyartifacts = {

@@ -94,6 +94,7 @@
         "Mod+v".action = toggle-window-floating;
         "Mod+shift+q".action = close-window;
         "Mod+f".action = fullscreen-window;
+        "Mod+o".action = toggle-overview;
 
         "Mod+h".action = focus-column-left;
         "Mod+left".action = focus-column-left;

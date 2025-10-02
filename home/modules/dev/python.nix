@@ -1,7 +1,15 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    python3
+    (python3.withPackages (
+      python-pkgs: with python-pkgs; [
+        requests
+        numpy
+        pandas
+        matplotlib
+      ]
+    ))
+
     python313Packages.ipython
 
     black

@@ -50,6 +50,10 @@
 
       relativenumber = true;
       signcolumn = "yes";
+      colorcolumn = [
+        80
+        120
+      ];
     };
 
     keymaps = [
@@ -169,5 +173,6 @@
     '';
   };
 
+  catppuccin.nvim.enable = true;
   home.sessionVariables.EDITOR = "nvim";
 }

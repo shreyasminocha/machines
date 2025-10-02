@@ -16,6 +16,51 @@
 
   programs.yt-dlp.enable = true;
 
+  # roux-specific settings here
+  programs.beets.settings = {
+    library = "/var/music/library.db";
+    directory = "/var/music";
+
+    import = {
+      log = "/var/music/import.log";
+    };
+
+    # TODO: package this
+    pluginpath = [ "/home/shreyas/beetsplug/beetsplug" ];
+
+    hook = {
+      hooks = [
+        {
+          event = "item_imported";
+          command = "beet artcollage -o /var/music/collage.jpg -s 100";
+        }
+      ];
+    };
+
+    convert = {
+      dest = "/var/music-mp3-v0";
+      formats = {
+        mp3-v0 = {
+          command = "/var/music-mp3-v0/encode $source $dest";
+          extension = "mp3";
+        };
+      };
+    };
+
+    alternatives = {
+      mp3-v0 = {
+        directory = "/var/music-mp3-v0";
+        formats = "mp3-v0";
+        query = "";
+      };
+    };
+
+    # musicbrainz = {
+    #   user = "";
+    #   pass = "";
+    # };
+  };
+
   # TODO: fix duplication of these settings
   sops = {
     # if this isn't a "string to the full path", it will be added to the store

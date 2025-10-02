@@ -1,7 +1,7 @@
 _:
 let
-  editorFontFamily = "'Victor Mono', 'Fira Code', 'Triplicate T4', 'Luxi Mono', 'Hack', monospace, 'Blobmoji'";
-  terminalFontFamily = "PowerlineSymbols, 'Fira Code', 'Triplicate T4', 'Luxi Mono', 'Fira Code', 'Hack', monospace";
+  editorFontFamily = "'Fira Code', 'FiraCode Nerd Font', monospace, 'Blobmoji'";
+  terminalFontFamily = editorFontFamily;
 in
 {
   "[astro]" = import ./astro.nix;
@@ -39,7 +39,7 @@ in
   "editor.cursorStyle" = "line";
   "editor.dragAndDrop" = false;
   "editor.fontFamily" = editorFontFamily;
-  "editor.fontLigatures" = "'ss03', 'ss02'";
+  "editor.fontLigatures" = "'ss03', 'ss02'"; # https://github.com/tonsky/FiraCode/wiki/How-to-enable-stylistic-sets
   "editor.hideCursorInOverviewRuler" = true;
   "editor.minimap.maxColumn" = 100;
   "editor.multiCursorModifier" = "ctrlCmd";
@@ -278,6 +278,7 @@ in
   "security.workspace.trust.untrustedFiles" = "open";
   "telemetry.telemetryLevel" = "off";
   "terminal.integrated.fontFamily" = terminalFontFamily;
+  "terminal.integrated.fontLigatures.enabled" = true;
   "terminal.external.linuxExec" = "konsole";
   "terminal.integrated.cursorStyle" = "line";
   "terminal.external.osxExec" = "Hyper.app";

@@ -4,7 +4,5 @@
     tecosaur.latex-utilities
     mblode.zotero
   ];
-  settings = {
-    "latex.lint.onChange" = true;
-  };
+  settings = { };
 }

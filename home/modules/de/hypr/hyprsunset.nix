@@ -1,6 +1,6 @@
 {
   services.hyprsunset = {
-    enable = true;
+    enable = false;
     transitions = {
       sunrise = {
         calendar = "*-*-* 06:00:00";
