@@ -2,15 +2,14 @@
 {
   imports = [
     ./hypr
-
-    ./niri.nix
-    ./swaylock.nix
-    ./swayidle.nix
+    ./niri
 
     ./fonts.nix
     ./i18n.nix
     ./xdg.nix
     ./xkb.nix
+
+    ./kwallet.nix
     ./waybar.nix
     ./anyrun.nix
     ./mako.nix
