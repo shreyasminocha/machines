@@ -6,8 +6,9 @@
     ../modules/sci
     ../modules/social
     ../modules/term
+    ../modules/browsers
+
     # ../modules/activitywatch.nix
-    ../modules/browsers.nix
     ../modules/misc.nix
     ../modules/plasma.nix
 

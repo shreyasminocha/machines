@@ -6,6 +6,7 @@
 {
   imports = [
     ./thunderbird.nix
+    ./vesktop.nix
   ];
 
   home.packages = with pkgs; [

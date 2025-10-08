@@ -10,6 +10,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     secrets = {
       url = "path:/home/shreyas/secret-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -38,11 +43,9 @@
     # > Doing so will render the cache useless, since you're building from a different Nixpkgs commit.
     hyprland = {
       url = "github:hyprwm/Hyprland?ref=v0.48.1";
-      # url = "github:hyprwm/Hyprland?ref=v${hyprland-version}";
     };
 
     hy3 = {
-      # url = "github:outfoxxed/hy3?ref=hl${hyprland-version}";
       url = "github:outfoxxed/hy3?ref=hl0.48.0";
       inputs.hyprland.follows = "hyprland";
     };
@@ -109,15 +112,16 @@
       self,
       nixpkgs,
       nixpkgs-unstable,
+      home-manager,
       nix-on-droid,
       secrets,
-      home-manager,
       ...
     }:
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
+      nur = inputs.nur.legacyPackages.${system};
       # TODO: get rid of this overlay
       mypkgs = (pkgs.extend inputs.poetry2nix.overlays.default).callPackage ./pkgs { };
     in
@@ -134,6 +138,7 @@
               system
               pkgs-unstable
               mypkgs
+              nur
               secrets
               ;
           };

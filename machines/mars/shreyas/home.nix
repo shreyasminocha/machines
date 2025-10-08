@@ -2,6 +2,7 @@
   inputs,
   system,
   pkgs-unstable,
+  nur,
   secrets,
   mypkgs,
   ...
@@ -38,6 +39,7 @@
         system
         inputs
         pkgs-unstable
+        nur
         mypkgs
         nixvim
         catppuccin
