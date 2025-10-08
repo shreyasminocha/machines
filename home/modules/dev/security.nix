@@ -2,6 +2,7 @@
   inputs,
   pkgs,
   pkgs-unstable,
+  system,
   ...
 }:
 {
@@ -21,7 +22,9 @@
     mitmproxy
     pwncat
 
-    inputs.pwndbg.packages."x86_64-linux".pwndbg
+    john
+
+    inputs.pwndbg.packages.${system}.pwndbg
   ];
 
   home.file."/home/shreyas/.config/gdb/gdbearlyinit" = {

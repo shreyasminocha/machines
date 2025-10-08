@@ -10,6 +10,8 @@
     ../modules/browsers.nix
     ../modules/misc.nix
     ../modules/plasma.nix
+
+    ./backups.nix
   ];
 
   home.username = "shreyas";
