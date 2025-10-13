@@ -8,6 +8,7 @@
 {
   home.packages = with pkgs; [
     ghidra-bin
+    # inputs.ida-free.legacyPackages.${system}.ida-free
     jadx
 
     libusbmuxd

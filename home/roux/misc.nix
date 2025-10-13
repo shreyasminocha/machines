@@ -25,8 +25,19 @@
       log = "/var/music/import.log";
     };
 
+    plugins = [
+      "arttools"
+      # "mbcollection"
+    ];
+
     # TODO: package this
     pluginpath = [ "/home/shreyas/beetsplug/beetsplug" ];
+
+    arttools = {
+      size_thresh = 500;
+      # aspect_ratio_thresh = 1.0;
+      max_file_size = 52428800;
+    };
 
     hook = {
       hooks = [
@@ -59,6 +70,12 @@
     #   user = "";
     #   pass = "";
     # };
+
+    mbcollection = {
+      auto = false;
+      collection = "";
+      remove = true;
+    };
   };
 
   # TODO: fix duplication of these settings

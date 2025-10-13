@@ -6,9 +6,7 @@
       name = "Fira Code";
       size = 11.0;
     };
-    # themeFile = "Catppuccin-Macchiato";
     settings = {
-      # background = "#263238";
       tab_bar_edge = "top";
       tab_bar_style = "powerline";
       scrollback_lines = 10000;
@@ -16,6 +14,7 @@
     };
     keybindings = {
       "kitty_mod+n" = "new_tab";
+      "kitty_mod+alt+n" = "detach_tab";
 
       "ctrl+equal" = "change_font_size all +2.0";
       "ctrl+minus" = "change_font_size all -2.0";

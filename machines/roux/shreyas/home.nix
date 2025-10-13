@@ -18,7 +18,12 @@
   home-manager.users.shreyas = ../../../home/roux;
 
   home-manager.extraSpecialArgs = {
-    inherit inputs pkgs-unstable mypkgs;
+    inherit
+      inputs
+      pkgs-unstable
+      mypkgs
+      secrets
+      ;
     gui = false;
   };
 }

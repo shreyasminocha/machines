@@ -60,6 +60,9 @@
           "flakes"
         ];
 
+        # allow-import-from-derivation = false;
+        allow-import-from-derivation = true;
+
         substituters = subst;
         trusted-substituters = subst;
 
@@ -100,6 +103,7 @@
       "vscode-extension-github-copilot"
       "steam"
       "steam-unwrapped"
+      "ida-free"
     ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,

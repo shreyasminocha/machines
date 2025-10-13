@@ -41,6 +41,7 @@
         pkgs-unstable
         nur
         mypkgs
+        secrets
         nixvim
         catppuccin
         ;

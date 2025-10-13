@@ -70,7 +70,6 @@
       "fetchart"
       "embedart"
       "thumbnails"
-      "arttools"
       "lastgenre"
       "scrub"
       "inline"
@@ -109,12 +108,6 @@
       dolphin = "yes";
     };
 
-    arttools = {
-      size_thresh = 500;
-      # aspect_ratio_thresh = 1.0;
-      max_file_size = 52428800;
-    };
-
     lastgenre = {
       count = 5;
       min_weight = 40;
@@ -145,17 +138,6 @@
       json = { };
     };
 
-    # musicbrainz = {
-    #   user = "";
-    #   pass = "";
-    # };
-
-    mbcollection = {
-      auto = false;
-      collection = "";
-      remove = true;
-    };
-
     # web = {
     #   host = "127.0.0.1";
     #   port = 32010;
@@ -167,6 +149,4 @@
     #   drop = "yes";
     # };
   };
-
-  # sops.secrets.${musicbrainz-password} = {};
 }

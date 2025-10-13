@@ -75,92 +75,6 @@ in
     "[Catppuccin Macchiato]" = {
       comments = "#bbb";
     };
-    "[Material Theme Ocean High Contrast]" = {
-      comments = "#aaa";
-      textMateRules = [
-        {
-          scope = "punctuation.definition.comment.java";
-          settings = {
-            foreground = "#aaa";
-          };
-        }
-      ];
-    };
-    "[Community Material Theme High Contrast]" = {
-      comments = "#aaa";
-      textMateRules = [
-        {
-          scope = "string.quoted.docstring";
-          settings = {
-            foreground = "#aaa";
-          };
-        }
-        {
-          scope = "comment.block.coq";
-          settings = {
-            foreground = "#ddd";
-            fontStyle = "";
-          };
-        }
-      ];
-      settings = {
-        foreground = "#0000005e";
-      };
-    };
-    "[Material Theme High Contrast]" = {
-      comments = "#aaa";
-      textMateRules = [
-        {
-          scope = "string.quoted.docstring";
-          settings = {
-            foreground = "#aaa";
-          };
-        }
-        {
-          scope = "comment.block.coq";
-          settings = {
-            foreground = "#ddd";
-            fontStyle = "";
-          };
-        }
-        {
-          scope = "string.other.link.destination.mdx";
-          settings = {
-            foreground = "#F07178";
-          };
-        }
-        {
-          scope = "string.other.begin.link.mdx";
-          settings = {
-            foreground = "#89DDFF";
-          };
-        }
-        {
-          scope = "string.other.end.mdx";
-          settings = {
-            foreground = "#89DDFF";
-          };
-        }
-        {
-          scope = "string.other.begin.mdx";
-          settings = {
-            foreground = "#89DDFF";
-          };
-        }
-        {
-          scope = "string.other.begin.yaml";
-          settings = {
-            foreground = "#EEFFFF";
-          };
-        }
-        {
-          scope = "string.other.end.yaml";
-          settings = {
-            foreground = "#EEFFFF";
-          };
-        }
-      ];
-    };
   };
   "explorer.autoReveal" = false;
   "explorer.confirmDelete" = false;
@@ -236,6 +150,7 @@ in
     "*.py3" = "python";
     "*.lyx" = "latex";
     "*.lyx~" = "latex";
+    "*.pgf" = "latex";
     "go.mod" = "go";
     hosts = "hosts";
     ".todo" = "markdown";

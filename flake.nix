@@ -20,16 +20,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nixpkgs-24-05.url = "github:NixOS/nixpkgs/nixos-24.05";
-    home-manager-24-05 = {
-      url = "github:nix-community/home-manager/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs-24-05";
-    };
-
     nix-on-droid = {
       url = "github:nix-community/nix-on-droid/release-24.05";
-      inputs.nixpkgs.follows = "nixpkgs-24-05";
-      inputs.home-manager.follows = "home-manager-24-05";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
@@ -39,10 +33,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # > Do not override Hyprland's `nixpkgs` input unless you know what you are doing.
-    # > Doing so will render the cache useless, since you're building from a different Nixpkgs commit.
     hyprland = {
-      url = "github:hyprwm/Hyprland?ref=v0.48.1";
+      url = "github:hyprwm/Hyprland?ref=v0.48.1"; # cachix
     };
 
     hy3 = {
@@ -51,15 +43,17 @@
     };
 
     niri = {
-      url = "github:sodiboo/niri-flake";
-      # inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:sodiboo/niri-flake"; # cachix
     };
 
     anyrun = {
       url = "github:anyrun-org/anyrun";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    anyrun-hyprwin.url = "github:uttarayan21/anyrun-hyprwin";
+    anyrun-hyprwin = {
+      url = "github:uttarayan21/anyrun-hyprwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     catppuccin = {
       url = "github:catppuccin/nix";
@@ -98,7 +92,7 @@
     };
 
     pwndbg = {
-      url = "github:pwndbg/pwndbg";
+      url = "github:pwndbg/pwndbg"; # cachix
     };
 
     misumisumi-flake = {
@@ -128,7 +122,7 @@
     {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
 
-      packages.${system}.default = mypkgs;
+      packages.${system} = mypkgs;
 
       nixosConfigurations =
         let

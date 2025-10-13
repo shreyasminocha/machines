@@ -18,6 +18,7 @@
 
       spotdl
       whipper
+      cyanrip
 
       mypkgs.tidal-dl-ng
     ]

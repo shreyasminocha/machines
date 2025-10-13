@@ -13,7 +13,8 @@
     ./nix.nix
     ./latex.nix
     ./typst.nix
-    ./rev.nix
+
+    ./security.nix
   ];
 
   home.packages = with pkgs; [
@@ -27,6 +28,7 @@
     tokei
     act
     pkgs-unstable.vulnix
+    jujutsu
   ];
 
   programs.gh.enable = true;

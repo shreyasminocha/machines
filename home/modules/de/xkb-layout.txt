@@ -61,4 +61,8 @@ xkb_symbols "custom" {
 
     // 5th keyboard row
     key <SPCE> { [    space,      space,          nobreakspace,          nobreakspace ] }; // " "
+
+    // TODO: tmp
+    key <RTSH> { [   Return,  BackSpace,              NoSymbol,              NoSymbol ] };
+    key <RCTL> { [    U005D,      U007D,              NoSymbol,              NoSymbol ] };
 };

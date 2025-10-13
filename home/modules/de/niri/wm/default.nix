@@ -4,6 +4,7 @@
     enable = true;
     package = pkgs.niri-unstable;
     settings = {
+      xwayland-satellite.enable = true;
       outputs = {
         "eDP-1".scale = 1.5;
         "DVI-I-1".scale = 1.0;
@@ -30,7 +31,7 @@
         keyboard.xkb = {
           file = "/home/shreyas/.config/xkb/symbols/custom";
           layout = "custom";
-          variant = "qwerty";
+          # variant = "qwerty";
           options = "lv3:ralt_switch,caps:escape_shifted_capslock,rupeesign:4";
         };
       };
@@ -50,14 +51,6 @@
         { argv = [ "blueman-applet" ]; }
         { argv = [ "tailscale-systray" ]; }
         { argv = [ "fcitx5" ]; }
-        {
-          argv = [
-            "systemctl"
-            "--user"
-            "start"
-            "hyprpolkitagent"
-          ];
-        }
       ];
     };
   };

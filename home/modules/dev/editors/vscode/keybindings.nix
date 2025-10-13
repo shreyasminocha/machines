@@ -112,6 +112,11 @@
   }
 
   {
+    key = "ctrl+q";
+    command = "-workbench.action.quit";
+  }
+
+  {
     key = "ctrl+e";
     command = "-workbench.action.quickOpen";
   }

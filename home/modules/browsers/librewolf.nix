@@ -1,4 +1,9 @@
-{ nur, ... }:
+{
+  nur,
+  secrets,
+  system,
+  ...
+}:
 {
   programs.librewolf = {
     enable = true;
@@ -71,7 +76,7 @@
               "https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/ultralist.txt"
             ];
             whitelist = [ ];
-            # userFilters = builtins.readFile mypkgs.ubo-filters;
+            userFilters = builtins.readFile "${secrets.packages.${system}.ubo-filters}/filters.txt";
           };
         };
       };
