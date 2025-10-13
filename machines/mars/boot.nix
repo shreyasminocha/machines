@@ -25,9 +25,14 @@
       systemd.enable = true;
     };
 
-    #resumeDevice = "/dev/disk/by-uuid/479878f2-fad6-4ae0-b660-547d58f05f5d";
-
     kernelModules = [ "kvm-intel" ];
+    kernelParams = [ "mem_sleep_default=deep" ];
+
     extraModulePackages = [ ];
+
+    zfs = {
+      allowHibernation = true;
+      forceImportRoot = false;
+    };
   };
 }
