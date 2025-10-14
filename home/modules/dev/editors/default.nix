@@ -4,13 +4,12 @@
   ...
 }:
 {
-  imports =
-    [
-      ./helix.nix
-      ./neovim
-    ]
-    ++ lib.optionals gui [
-      ./vscode
-      ./zed.nix
-    ];
+  imports = [
+    ./helix.nix
+    ./neovim
+  ]
+  ++ lib.optionals gui [
+    ./vscode
+    ./zed.nix
+  ];
 }

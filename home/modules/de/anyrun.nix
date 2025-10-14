@@ -1,30 +1,31 @@
 {
-  inputs,
-  system,
+  pkgs-unstable,
   ...
 }:
 {
   programs.anyrun =
     let
-      anyrun-pkgs = inputs.anyrun.packages.${system};
+      # as of $NOW, stable anyrun doesn't have niri-focus
+      inherit (pkgs-unstable) anyrun;
     in
     {
       enable = true;
-      package = anyrun-pkgs.anyrun;
+      package = anyrun;
       config = {
         x.fraction = 0.5;
         y.fraction = 0.25;
         width.absolute = 600;
         # height.absolute = 0;
         layer = "overlay";
-        plugins = with anyrun-pkgs; [
-          applications
-          niri-focus
-          # inputs.anyrun-hyprwin.packages.${system}.default
+        plugins = [
+          "${anyrun}/lib/libapplications.so"
+          "${anyrun}/lib/libsymbols.so"
+          "${anyrun}/lib/librink.so"
+          "${anyrun}/lib/libniri_focus.so"
         ];
       };
       extraCss = ''
-        #window {
+        window {
           background-color: rgba(0, 0, 0, 0);
           font-family: 'Fira Code';
         }

@@ -1,7 +1,6 @@
-{ pkgs, pkgs-unstable, ... }:
+{ pkgs, ... }:
 let
-  # TODO: switch—currently -unstable because the jupyter ext had issues with the stable
-  vscode = pkgs-unstable.vscodium;
+  vscode = pkgs.vscodium;
   extensions = import ./extensions { inherit pkgs vscode; };
   settings = import ./settings { inherit pkgs; };
 in

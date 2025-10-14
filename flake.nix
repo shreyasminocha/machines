@@ -46,15 +46,6 @@
       url = "github:sodiboo/niri-flake"; # cachix
     };
 
-    anyrun = {
-      url = "github:anyrun-org/anyrun";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    anyrun-hyprwin = {
-      url = "github:uttarayan21/anyrun-hyprwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     catppuccin = {
       url = "github:catppuccin/nix";
       inputs.nixpkgs.follows = "nixpkgs";
