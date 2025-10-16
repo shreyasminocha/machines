@@ -56,11 +56,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    dolphin-overlay = {
-      url = "github:rumboon/dolphin-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     sops-nix = {
       url = "github:Mic92/sops-nix";
       inputs.nixpkgs.follows = "nixpkgs";

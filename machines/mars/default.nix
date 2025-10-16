@@ -83,7 +83,6 @@
     [
       inputs.niri.overlays.niri
       inputs.nix-vscode-extensions.overlays.default
-      inputs.dolphin-overlay.overlays.default
 
       myoverlays.overlays.default
     ];
