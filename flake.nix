@@ -10,11 +10,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nur = {
-      url = "github:nix-community/NUR";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     secrets = {
       url = "path:/home/shreyas/secret-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -96,7 +91,6 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-      nur = inputs.nur.legacyPackages.${system};
       # TODO: get rid of this overlay
       mypkgs = (pkgs.extend inputs.poetry2nix.overlays.default).callPackage ./pkgs { };
     in
@@ -115,7 +109,6 @@
               system
               pkgs-unstable
               mypkgs
-              nur
               secrets
               ;
             outputs = self;

@@ -1,5 +1,5 @@
 {
-  nur,
+  mypkgs,
   secrets,
   system,
   ...
@@ -17,7 +17,7 @@
         "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = true;
       };
       extensions = {
-        packages = with nur.repos.rycee.firefox-addons; [
+        packages = with mypkgs.firefox-addons; [
           ublock-origin
           bitwarden
           vimium
@@ -30,7 +30,7 @@
       isDefault = true;
       id = 0;
       extensions = {
-        packages = with nur.repos.rycee.firefox-addons; [
+        packages = with mypkgs.firefox-addons; [
           ublock-origin
           bitwarden
           zotero-connector
