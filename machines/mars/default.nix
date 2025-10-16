@@ -84,7 +84,6 @@
       inputs.niri.overlays.niri
       inputs.nix-vscode-extensions.overlays.default
       inputs.dolphin-overlay.overlays.default
-      inputs.misumisumi-flake.overlays.default
 
       myoverlays.overlays.default
     ];

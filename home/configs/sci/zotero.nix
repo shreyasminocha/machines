@@ -1,5 +1,5 @@
 {
-  pkgs,
+  mypkgs,
   gui,
   ...
 }:
@@ -48,7 +48,7 @@
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
 
-      extensions = with pkgs.zotero-addons; [
+      extensions = with mypkgs.zotero-addons; [
         zotero-better-bibtex
         zotero-reading-list
       ];

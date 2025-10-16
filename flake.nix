@@ -85,11 +85,6 @@
     pwndbg = {
       url = "github:pwndbg/pwndbg"; # cachix
     };
-
-    misumisumi-flake = {
-      url = "github:misumisumi/flakes";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =
@@ -115,6 +110,8 @@
 
       packages.${system} = mypkgs;
 
+      homeManagerModules.default = import ./home/modules;
+
       nixosConfigurations =
         let
           specialArgs = {
@@ -126,6 +123,7 @@
               nur
               secrets
               ;
+            outputs = self;
           };
           commonModules = [
             home-manager.nixosModules.home-manager

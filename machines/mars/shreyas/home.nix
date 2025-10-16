@@ -1,5 +1,6 @@
 {
   inputs,
+  outputs,
   system,
   pkgs-unstable,
   nur,
@@ -23,7 +24,8 @@
     inputs.nixvim.homeModules.nixvim
     inputs.catppuccin.homeModules.catppuccin
     inputs.plasma-manager.homeManagerModules.plasma-manager
-    inputs.misumisumi-flake.homeManagerModules.default
+
+    outputs.homeManagerModules.default
 
     secrets.homeManagerModules.mars
     secrets.homeManagerModules.email-accounts
