@@ -1,7 +1,7 @@
 _: {
   imports = [
-    ../modules/term
-    ../modules/dev/git.nix
+    ../configs/term
+    ../configs/dev/git.nix
   ];
 
   home.file = { };

@@ -1,18 +1,18 @@
 {
   imports = [
-    ../modules/de
-    ../modules/dev
-    ../modules/media
-    ../modules/sci
-    ../modules/social
-    ../modules/term
-    ../modules/browsers
-
-    # ../modules/activitywatch.nix
-    ../modules/misc.nix
-    ../modules/plasma.nix
-
     ./backups.nix
+
+    ../configs/de
+    ../configs/dev
+    ../configs/media
+    ../configs/sci
+    ../configs/social
+    ../configs/term
+    ../configs/browsers
+
+    # ../configs/activitywatch.nix
+    ../configs/misc.nix
+    ../configs/plasma.nix
   ];
 
   home.username = "shreyas";

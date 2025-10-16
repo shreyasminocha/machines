@@ -2,12 +2,12 @@
   imports = [
     ./misc.nix
 
-    ../modules/term
-    ../modules/dev/editors
-    ../modules/dev/git.nix
-    ../modules/dev/nix.nix
-    ../modules/media/music
-    ../modules/misc.nix
+    ../configs/term
+    ../configs/dev/editors
+    ../configs/dev/git.nix
+    ../configs/dev/nix.nix
+    ../configs/media/music
+    ../configs/misc.nix
   ];
 
   home.username = "shreyas";
