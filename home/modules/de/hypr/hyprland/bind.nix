@@ -29,7 +29,7 @@
   "$mod, d, exec, dolphin"
   "$mod, c, exec, codium"
   "$mod, t, exec, typora"
-  "$mod, space, exec, anyrun"
+  "$mod, space, exec, fuzzel"
   "$mod, semicolon, exec, hyprlock"
 
   "$mod, h, hy3:movefocus, l"

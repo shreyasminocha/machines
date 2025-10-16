@@ -63,6 +63,6 @@ xkb_symbols "custom" {
     key <SPCE> { [    space,      space,          nobreakspace,          nobreakspace ] }; // " "
 
     // TODO: tmp
-    key <RTSH> { [   Return,  BackSpace,              NoSymbol,              NoSymbol ] };
-    key <RCTL> { [    U005D,      U007D,              NoSymbol,              NoSymbol ] };
+    key <RTSH> { [ NoSymbol,     Return,              NoSymbol,              NoSymbol ] };
+    key <RCTL> { [ NoSymbol,  BackSpace,              NoSymbol,              NoSymbol ] };
 };

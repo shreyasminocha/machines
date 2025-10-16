@@ -7,7 +7,28 @@
 {
   programs.librewolf = {
     enable = true;
+    profiles.incognito = {
+      isDefault = false;
+      id = 1;
+      settings = {
+        "privacy.clearOnShutdown.history" = true;
+        "privacy.clearOnShutdown.cookies" = true;
+        "privacy.clearOnShutdown_v2.cookiesAndStorage" = true;
+        "privacy.clearOnShutdown_v2.browsingHistoryAndDownloads" = true;
+      };
+      extensions = {
+        packages = with nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          bitwarden
+          vimium
+        ];
+        force = true;
+        settings = { };
+      };
+    };
     profiles.default = {
+      isDefault = true;
+      id = 0;
       extensions = {
         packages = with nur.repos.rycee.firefox-addons; [
           ublock-origin
@@ -21,8 +42,8 @@
         settings = {
           "uBlock0@raymondhill.net".settings = {
             userSettings = {
-              "advancedUserEnabled" = true;
-              "externalLists" = ''
+              advancedUserEnabled = true;
+              externalLists = ''
                 https://filters.adtidy.org/extension/ublock/filters/14.txt
                 https://filters.adtidy.org/extension/ublock/filters/3.txt
                 https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/sections/antiadblock.txt
@@ -31,8 +52,8 @@
                 https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/ultralist.txt
                 https://secure.fanboy.co.nz/fanboy-annoyance_ubo.txt
               '';
-              "ignoreGenericCosmeticFilters" = true;
-              "importedLists" = [
+              ignoreGenericCosmeticFilters = true;
+              importedLists = [
                 "https://filters.adtidy.org/extension/ublock/filters/14.txt"
                 "https://filters.adtidy.org/extension/ublock/filters/3.txt"
                 "https://raw.githubusercontent.com/AdguardTeam/AdguardFilters/master/AnnoyancesFilter/sections/antiadblock.txt"
@@ -41,8 +62,8 @@
                 "https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/ultralist.txt"
                 "https://secure.fanboy.co.nz/fanboy-annoyance_ubo.txt"
               ];
-              "popupPanelSections" = 63;
-              "webrtcIPAddressHidden" = true;
+              popupPanelSections = 63;
+              webrtcIPAddressHidden = true;
             };
             selectedFilterLists = [
               "user-filters"
@@ -75,7 +96,10 @@
               "https://raw.githubusercontent.com/quenhus/uBlock-Origin-dev-filter/main/dist/duckduckgo/all.txt"
               "https://raw.githubusercontent.com/yourduskquibbles/webannoyances/master/ultralist.txt"
             ];
-            whitelist = [ ];
+            whitelist = [
+              "chrome-extension-scheme"
+              "moz-extension-scheme"
+            ];
             userFilters = builtins.readFile "${secrets.packages.${system}.ubo-filters}/filters.txt";
           };
         };

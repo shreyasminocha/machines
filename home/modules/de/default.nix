@@ -9,12 +9,15 @@
     ./xdg.nix
     ./xkb.nix
 
-    ./kwallet.nix
-    ./waybar.nix
-    ./anyrun.nix
-    ./mako.nix
     ./gtk.nix
     ./kvantum.nix
+
+    ./waybar.nix
+    # ./anyrun.nix
+    ./fuzzel.nix
+
+    ./kwallet.nix
+    ./mako.nix
   ];
 
   home.packages = with pkgs; [

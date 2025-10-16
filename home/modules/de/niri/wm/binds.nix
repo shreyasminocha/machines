@@ -55,10 +55,11 @@ with config.lib.niri.actions;
 
   "Mod+return".action.spawn = "kitty";
   "Mod+b".action.spawn = "librewolf";
+  "Mod+shift+b".action.spawn = "librewolf -P incognito";
   "Mod+d".action.spawn = "dolphin";
   "Mod+c".action.spawn = "codium";
   "Mod+t".action.spawn = "typora";
-  "Mod+space".action.spawn = "anyrun";
+  "Mod+space".action.spawn = "fuzzel";
   "Mod+semicolon".action.spawn = "swaylock";
 
   "Mod+e".action = toggle-column-tabbed-display;
