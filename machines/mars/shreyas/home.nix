@@ -15,20 +15,7 @@
   home-manager.users.shreyas = ../../../home/mars;
 
   home-manager.sharedModules = [
-    inputs.hyprland.homeManagerModules.default
-
-    inputs.niri.homeModules.niri
-    # inputs.niri.homeModules.config
-
-    inputs.nixvim.homeModules.nixvim
-    inputs.catppuccin.homeModules.catppuccin
-    inputs.plasma-manager.homeManagerModules.plasma-manager
-
     outputs.homeManagerModules.default
-
-    secrets.homeManagerModules.mars
-    secrets.homeManagerModules.email-accounts
-    secrets.homeManagerModules.music
   ];
 
   home-manager.extraSpecialArgs =

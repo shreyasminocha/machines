@@ -2,7 +2,6 @@
 {
   imports = [
     ./home.nix
-    ../../../modules/gaming.nix
   ];
 
   users.users.shreyas = {

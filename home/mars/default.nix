@@ -1,5 +1,23 @@
 {
+  inputs,
+  secrets,
+  ...
+}:
+{
   imports = [
+    inputs.hyprland.homeManagerModules.default
+
+    inputs.niri.homeModules.niri
+    # inputs.niri.homeModules.config
+
+    inputs.nixvim.homeModules.nixvim
+    inputs.catppuccin.homeModules.catppuccin
+    inputs.plasma-manager.homeManagerModules.plasma-manager
+
+    secrets.homeManagerModules.mars
+    secrets.homeManagerModules.email-accounts
+    secrets.homeManagerModules.music
+
     ./backups.nix
 
     ../configs/de
@@ -17,8 +35,6 @@
 
   home.username = "shreyas";
   home.homeDirectory = "/home/shreyas";
-
-  home.file = { };
 
   home.sessionVariables = {
     BROWSER = "librewolf";

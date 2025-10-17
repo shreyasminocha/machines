@@ -1,5 +1,12 @@
+{ inputs, secrets, ... }:
 {
   imports = [
+    inputs.nixvim.homeModules.nixvim
+    inputs.catppuccin.homeModules.catppuccin
+    inputs.sops-nix.homeManagerModules.sops
+
+    secrets.homeManagerModules.music
+
     ./misc.nix
 
     ../configs/term
@@ -12,8 +19,6 @@
 
   home.username = "shreyas";
   home.homeDirectory = "/home/shreyas";
-
-  home.file = { };
 
   home.shell.enableFishIntegration = true;
 

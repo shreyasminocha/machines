@@ -117,7 +117,6 @@
             home-manager.nixosModules.home-manager
 
             inputs.sops-nix.nixosModules.sops
-            secrets.nixosModules.networks
           ];
         in
         {
@@ -130,6 +129,8 @@
               inputs.impermanence.nixosModules.impermanence
               inputs.catppuccin.nixosModules.catppuccin
 
+              secrets.nixosModules.networks
+
               ./machines/mars
             ];
           };
@@ -139,6 +140,7 @@
 
             modules = commonModules ++ [
               inputs.nixos-hardware.nixosModules.hardkernel-odroid-h3
+              secrets.nixosModules.roux
 
               ./machines/roux
             ];
