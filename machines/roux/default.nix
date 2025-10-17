@@ -19,6 +19,11 @@
     ./shreyas
   ];
 
+  users.groups.music.members = [
+    "shreyas"
+    "navidrome"
+  ];
+
   nix.settings.experimental-features = [
     "nix-command"
     "flakes"
