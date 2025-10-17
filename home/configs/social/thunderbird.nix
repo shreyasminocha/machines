@@ -1,9 +1,11 @@
+{ mypkgs, ... }:
 {
   programs.thunderbird = {
     enable = true;
     profiles = {
       "shreyas" = {
         isDefault = true;
+        extensions = [ mypkgs.thunderbird-addons.tbkeys-lite ];
         settings = {
           "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
           "datareporting.healthreport.uploadEnabled" = false;

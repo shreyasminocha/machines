@@ -92,7 +92,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
       # TODO: get rid of this overlay
-      mypkgs = (pkgs.extend inputs.poetry2nix.overlays.default).callPackage ./pkgs { };
+      mypkgs = import ./pkgs { pkgs = pkgs.extend inputs.poetry2nix.overlays.default; };
     in
     {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;

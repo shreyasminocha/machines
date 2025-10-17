@@ -19,6 +19,7 @@
       "pbpaste" = "wl-paste";
       "rgi" = "rg -i";
       "batnw" = "bat --wrap=never";
+      "ff" = "fastfetch";
     };
     functions = {
       envsource = {
@@ -37,10 +38,6 @@
     '';
     interactiveShellInit = ''
       set fish_greeting
-
-      # set fish_color_error cc6666
-      # set fish_color_command 5fff87
-      # set fish_color_comment c6c6c6
     '';
   };
   catppuccin.fish.enable = true;

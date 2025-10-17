@@ -104,6 +104,7 @@
         ruff.enable = true;
         clang.enable = true;
         rust_analyzer.enable = true;
+        gopls.enable = true;
 
         texlab.enable = true;
         ltex.enable = true;

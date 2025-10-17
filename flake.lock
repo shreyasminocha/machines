@@ -1111,8 +1111,8 @@
         ]
       },
       "locked": {
-        "lastModified": 1760293754,
-        "narHash": "sha256-SAzJUiEGKzx6guE16YmA7ZtwparBftAzr1dM+fKNN/w=",
+        "lastModified": 1760651761,
+        "narHash": "sha256-eve6S6V73X+I6WP+TQn+Q1i9kHJR+eZleuD17C+tLOA=",
         "path": "/home/shreyas/secret-flake",
         "type": "path"
       },

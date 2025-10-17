@@ -10,7 +10,7 @@ let
     ./emmet.nix
     ./git.nix
     # ./gitlens.nix
-    # ./go.nix
+    ./go.nix
     # ./grammarly.nix
     # ./harper.nix
     # ./haskell.nix

@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 with config.lib.niri.actions;
 {
   "XF86AudioRaiseVolume".action.spawn = [
@@ -53,9 +58,13 @@ with config.lib.niri.actions;
   "shift+Print".action = screenshot;
   "ctrl+shift+Print".action = screenshot;
 
-  "Mod+return".action.spawn = "kitty";
+  "Mod+return".action.spawn = "${lib.getExe pkgs.kitty}";
   "Mod+b".action.spawn = "librewolf";
-  "Mod+shift+b".action.spawn = "librewolf -P incognito";
+  "Mod+shift+b".action.spawn = [
+    "librewolf"
+    "-P"
+    "incognito"
+  ];
   "Mod+d".action.spawn = "dolphin";
   "Mod+c".action.spawn = "codium";
   "Mod+t".action.spawn = "typora";

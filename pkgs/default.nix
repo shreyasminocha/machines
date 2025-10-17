@@ -5,4 +5,5 @@
   zotero-addons = pkgs.callPackage ./zotero-addons { };
   # https://github.com/nix-community/nur-combined/blob/c61afdf216c161e6146d03a470d5816b6af5f898/repos/rycee/pkgs/firefox-addons/default.nix
   firefox-addons = pkgs.callPackage ./firefox-addons { };
+  thunderbird-addons = pkgs.callPackage ./thunderbird-addons { };
 }

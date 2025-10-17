@@ -14,7 +14,7 @@
     libusbmuxd
     checkra1n
     android-tools
-    pkgs-unstable.frida-tools
+    pkgs-unstable.frida-tools # TODO: switch to stable once it has 14.x.x
 
     pwntools
 
@@ -31,7 +31,13 @@
   home.file."/home/shreyas/.config/gdb/gdbearlyinit" = {
     text = ''
       set startup-quietly on
+    '';
+  };
+
+  home.file."/home/shreyas/.config/gdb/gdbinit" = {
+    text = ''
       set debuginfod enabled on
+      set show-tips off
     '';
   };
 }

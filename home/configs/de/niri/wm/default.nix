@@ -1,5 +1,12 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  lib,
+  ...
+}:
+{
+  home.packages = with pkgs; [ xwayland-satellite ];
+
   programs.niri = {
     enable = true;
     package = pkgs.niri-unstable;
@@ -38,9 +45,9 @@
       environment = { };
       switch-events.lid-close.action.spawn = "swaylock";
       screenshot-path = "~/documents/screenshots/screenshot-%Y-%m-%d-%H%M%S-%f.png";
-      binds = import ./binds.nix { inherit config; };
+      binds = import ./binds.nix { inherit config pkgs lib; };
       spawn-at-startup = [
-        { argv = [ "swaybg -i /home/shreyas/secret-flake/wallpaper.jpg" ]; }
+        { argv = [ "swaybg -i /home/shreyas/secret-flake/wallpaper.jpg" ]; } # TODO: fix
         { argv = [ "waybar" ]; }
         {
           argv = [
