@@ -1,3 +1,4 @@
+{ pkgs, lib, ... }:
 {
   programs.git = {
     enable = true;
@@ -93,4 +94,25 @@
     difftastic.enable = true;
     lfs.enable = true;
   };
+
+  programs.gh.enable = true;
+
+  programs.lazygit = {
+    enable = true;
+    settings = {
+      gui = {
+        timeFormat = "2025-12-31";
+        shortTimeFormat = "2359";
+        nerdFontsVersion = "3";
+        border = "single";
+      };
+      git = {
+        pagers.externalDiffCommand = "${lib.getExe pkgs.difftastic} --color=always";
+        parseEmoji = true;
+      };
+      update.method = "never";
+      disableStartupPopups = true;
+    };
+  };
+  catppuccin.lazygit.enable = true;
 }

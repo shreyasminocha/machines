@@ -5,7 +5,7 @@
 }:
 {
   imports = [
-    inputs.hyprland.homeManagerModules.default
+    # inputs.hyprland.homeManagerModules.default
 
     inputs.niri.homeModules.niri
     # inputs.niri.homeModules.config
@@ -38,7 +38,7 @@
 
   home.sessionVariables = {
     BROWSER = "librewolf";
-    TERM = "kitty";
+    TERMINAL = "kitty";
     # GTK_USE_PORTAL = 1;
   };
 

@@ -1,5 +1,4 @@
 {
-  inputs,
   config,
   pkgs,
   ...
@@ -27,9 +26,9 @@
       extraPortals = with pkgs; [
         xdg-desktop-portal-wlr
         kdePackages.xdg-desktop-portal-kde
-        # xdg-desktop-portal-gtk
-        # xdg-desktop-portal-gnome
-        inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+        # inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland
       ];
       xdgOpenUsePortal = true;
     };

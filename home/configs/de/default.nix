@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   imports = [
-    ./hypr
+    # ./hypr
     ./niri
 
     ./fonts.nix
@@ -21,10 +21,7 @@
   ];
 
   home.packages = with pkgs; [
-    grimblast
     wl-clipboard
-    networkmanagerapplet
-    tailscale-systray
   ];
 
   services.blueman-applet.enable = true;

@@ -12,9 +12,6 @@
   home.packages =
     with pkgs;
     [
-      pamixer
-      brightnessctl
-      playerctl
       ffmpeg
       internetarchive
     ]

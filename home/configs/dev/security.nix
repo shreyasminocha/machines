@@ -2,31 +2,38 @@
   inputs,
   pkgs,
   pkgs-unstable,
+  lib,
   system,
+  gui,
   ...
 }:
 {
-  home.packages = with pkgs; [
-    ghidra-bin
-    # inputs.ida-free.legacyPackages.${system}.ida-free
-    jadx
+  home.packages =
+    with pkgs;
+    [
+      jadx
 
-    libusbmuxd
-    checkra1n
-    android-tools
-    pkgs-unstable.frida-tools # TODO: switch to stable once it has 14.x.x
+      libusbmuxd
+      checkra1n
+      android-tools
+      pkgs-unstable.frida-tools # TODO: switch to stable once it has 14.x.x
 
-    pwntools
+      pwntools
 
-    wireshark
-    # tshark
-    mitmproxy
-    pwncat
+      # tshark
+      mitmproxy
+      pwncat
 
-    john
+      john
 
-    inputs.pwndbg.packages.${system}.pwndbg
-  ];
+      inputs.pwndbg.packages.${system}.pwndbg
+    ]
+    ++ lib.optionals gui [
+      ghidra-bin
+      # inputs.ida-free.legacyPackages.${system}.ida-free
+
+      wireshark
+    ];
 
   home.file."/home/shreyas/.config/gdb/gdbearlyinit" = {
     text = ''

@@ -1,4 +1,8 @@
-{ pkgs, pkgs-unstable, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 {
   imports = [
     ./editors
@@ -30,25 +34,4 @@
     pkgs-unstable.vulnix
     jujutsu
   ];
-
-  programs.gh.enable = true;
-
-  programs.lazygit = {
-    enable = true;
-    settings = {
-      gui = {
-        timeFormat = "2025-12-31";
-        shortTimeFormat = "2359";
-        nerdFontsVersion = "3";
-        border = "single";
-      };
-      git = {
-        paging.useExternalDiffGitConfig = true;
-        parseEmoji = true;
-      };
-      update.method = "never";
-      disableStartupPopups = true;
-    };
-  };
-  catppuccin.lazygit.enable = true;
 }

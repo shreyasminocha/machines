@@ -43,20 +43,27 @@
         };
       };
       environment = { };
-      switch-events.lid-close.action.spawn = "swaylock";
+      switch-events.lid-close.action.spawn = lib.getExe config.programs.swaylock.package;
       screenshot-path = "~/documents/screenshots/screenshot-%Y-%m-%d-%H%M%S-%f.png";
       binds = import ./binds.nix { inherit config pkgs lib; };
       spawn-at-startup = [
-        { argv = [ "swaybg -i /home/shreyas/secret-flake/wallpaper.jpg" ]; } # TODO: fix
-        { argv = [ "waybar" ]; }
         {
           argv = [
-            "nm-applet"
+            (lib.getExe pkgs.swaybg)
+            "-i"
+            "/home/shreyas/secret-flake/wallpaper.jpg"
+          ];
+        }
+        { argv = [ (lib.getExe config.programs.waybar.package) ]; }
+        {
+          argv = [
+            (lib.getExe pkgs.networkmanagerapplet)
             "--indicator"
           ];
         }
         { argv = [ "blueman-applet" ]; }
-        { argv = [ "tailscale-systray" ]; }
+        { argv = [ (lib.getExe pkgs.tailscale-systray) ]; }
+
         { argv = [ "fcitx5" ]; }
       ];
     };

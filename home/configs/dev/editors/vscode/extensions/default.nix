@@ -1,4 +1,9 @@
-{ pkgs, vscode, ... }:
+{
+  pkgs,
+  lib,
+  vscode,
+  ...
+}:
 let
   inherit (pkgs.forVSCodeVersion vscode.version) vscode-marketplace;
 
@@ -41,7 +46,7 @@ let
     ./ty.nix
     ./typescript.nix
   ];
-  otherExtensions = map (file: import file { inherit pkgs vscode-marketplace; }) files;
+  otherExtensions = map (file: import file { inherit pkgs lib vscode-marketplace; }) files;
 in
 {
   extensions =

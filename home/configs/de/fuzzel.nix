@@ -8,4 +8,5 @@
       border.radius = 0;
     };
   };
+  catppuccin.fuzzel.enable = true;
 }

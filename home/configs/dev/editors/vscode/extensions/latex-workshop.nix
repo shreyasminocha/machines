@@ -1,11 +1,16 @@
-{ pkgs, vscode-marketplace, ... }:
+{
+  pkgs,
+  lib,
+  vscode-marketplace,
+  ...
+}:
 {
   extensions = with vscode-marketplace; [
     james-yu.latex-workshop
   ];
   settings =
     let
-      viewer = "${pkgs.sioyek}/bin/sioyek";
+      viewer = lib.getExe pkgs.sioyek;
     in
     {
       "latex-workshop.view.pdf.viewer" = "tab";
@@ -59,8 +64,7 @@
             "-outdir=%OUTDIR%"
             "%DOC%"
           ];
-          env = {
-          };
+          env = { };
         }
       ];
     };

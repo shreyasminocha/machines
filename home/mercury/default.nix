@@ -1,10 +1,8 @@
 _: {
   imports = [
     ../configs/term
-    ../configs/dev/git.nix
+    ../configs/dev
   ];
-
-  home.file = { };
 
   programs.home-manager.enable = true;
 

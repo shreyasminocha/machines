@@ -20,8 +20,6 @@
 
     fira-code
     nerd-fonts.fira-code
-
-    font-awesome # waybar icons
   ];
 
   fonts = {

@@ -1,8 +1,8 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 let
   vscode = pkgs.vscodium;
-  extensions = import ./extensions { inherit pkgs vscode; };
-  settings = import ./settings { inherit pkgs; };
+  extensions = import ./extensions { inherit pkgs lib vscode; };
+  settings = import ./settings { inherit pkgs lib; };
 in
 {
   programs.vscode = {

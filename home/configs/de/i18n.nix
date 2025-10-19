@@ -51,6 +51,15 @@
             };
             "Behavior/DisabledAddons"."0" = "cloudpinyin";
           };
+          addons = {
+            pinyin.globalSection = {
+              CloudPinyinEnabled = false;
+              FirstRun = false;
+            };
+            #unicode.globalSection = {
+            #  TriggerKey."0" = "Control+Alt+U";
+            #};
+          };
         };
       };
     };

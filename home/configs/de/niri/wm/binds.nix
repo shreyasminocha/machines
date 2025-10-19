@@ -5,51 +5,62 @@
   ...
 }:
 with config.lib.niri.actions;
+let
+  pamixer = lib.getExe pkgs.pamixer;
+  brightnessctl = lib.getExe pkgs.brightnessctl;
+  playerctl = lib.getExe pkgs.playerctl;
+  librewolf = lib.getExe config.programs.librewolf.package;
+  vscode = lib.getExe config.programs.vscode.package;
+  kitty = lib.getExe config.programs.kitty.package;
+  typora = lib.getExe pkgs.typora;
+  fuzzel = lib.getExe config.programs.fuzzel.package;
+  swaylock = lib.getExe config.programs.swaylock.package;
+in
 {
   "XF86AudioRaiseVolume".action.spawn = [
-    "pamixer"
+    pamixer
     "-i"
     "5"
   ];
   "XF86AudioLowerVolume".action.spawn = [
-    "pamixer"
+    pamixer
     "-d"
     "5"
   ];
   "XF86AudioMicMute".action.spawn = [
-    "pamixer"
+    pamixer
     "--default-source"
     "-m"
   ];
   "XF86AudioMute".action.spawn = [
-    "pamixer"
+    pamixer
     "-t"
   ];
 
   "XF86AudioPlay".action.spawn = [
-    "playerctl"
+    playerctl
     "play-pause"
   ];
   "XF86AudioPause".action.spawn = [
-    "playerctl"
+    playerctl
     "play-pause"
   ];
   "XF86AudioNext".action.spawn = [
-    "playerctl"
+    playerctl
     "next"
   ];
   "XF86AudioPrev".action.spawn = [
-    "playerctl"
+    playerctl
     "previous"
   ];
 
   "XF86MonBrightnessUp".action.spawn = [
-    "brightnessctl"
+    brightnessctl
     "s"
     "+5%"
   ];
   "XF86MonBrightnessDown".action.spawn = [
-    "brightnessctl"
+    brightnessctl
     "s"
     "5%-"
   ];
@@ -58,18 +69,18 @@ with config.lib.niri.actions;
   "shift+Print".action = screenshot;
   "ctrl+shift+Print".action = screenshot;
 
-  "Mod+return".action.spawn = "${lib.getExe pkgs.kitty}";
-  "Mod+b".action.spawn = "librewolf";
+  "Mod+b".action.spawn = librewolf;
   "Mod+shift+b".action.spawn = [
-    "librewolf"
+    librewolf
     "-P"
     "incognito"
   ];
+  "Mod+return".action.spawn = kitty;
   "Mod+d".action.spawn = "dolphin";
-  "Mod+c".action.spawn = "codium";
-  "Mod+t".action.spawn = "typora";
-  "Mod+space".action.spawn = "fuzzel";
-  "Mod+semicolon".action.spawn = "swaylock";
+  "Mod+c".action.spawn = vscode;
+  "Mod+t".action.spawn = typora;
+  "Mod+space".action.spawn = fuzzel;
+  "Mod+semicolon".action.spawn = swaylock;
 
   "Mod+e".action = toggle-column-tabbed-display;
 
