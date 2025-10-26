@@ -25,8 +25,8 @@
       buffer_font_size = 14;
       theme = {
         mode = "dark";
-        light = "One Light";
-        dark = "Material Dark";
+        # light = "One Light";
+        # dark = "Material Dark";
       };
       tab_size = 2;
       # vim_mode = true;
@@ -34,4 +34,6 @@
     };
     userKeymaps = [ ];
   };
+
+  catppuccin.zed.enable = true;
 }

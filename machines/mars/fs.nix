@@ -47,6 +47,8 @@
     fsType = "ext4";
   };
 
+  zramSwap.enable = true;
+
   services.zfs = {
     autoScrub.enable = true;
     trim.enable = true;

@@ -45,27 +45,9 @@
       environment = { };
       switch-events.lid-close.action.spawn = lib.getExe config.programs.swaylock.package;
       screenshot-path = "~/documents/screenshots/screenshot-%Y-%m-%d-%H%M%S-%f.png";
-      binds = import ./binds.nix { inherit config pkgs lib; };
-      spawn-at-startup = [
-        {
-          argv = [
-            (lib.getExe pkgs.swaybg)
-            "-i"
-            "/home/shreyas/secret-flake/wallpaper.jpg"
-          ];
-        }
-        { argv = [ (lib.getExe config.programs.waybar.package) ]; }
-        {
-          argv = [
-            (lib.getExe pkgs.networkmanagerapplet)
-            "--indicator"
-          ];
-        }
-        { argv = [ "blueman-applet" ]; }
-        { argv = [ (lib.getExe pkgs.tailscale-systray) ]; }
 
-        { argv = [ "fcitx5" ]; }
-      ];
+      binds = import ./binds.nix { inherit config pkgs lib; };
+      spawn-at-startup = import ./spawn.nix { inherit config pkgs lib; };
     };
   };
 }

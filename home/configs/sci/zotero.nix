@@ -9,6 +9,8 @@
     profiles.default = {
       settings = {
         "browser.theme.toolbar-theme" = 0;
+        "intl.locale.requested" = "en-CA";
+
         "extensions.zotero.dataDir" = "/home/shreyas/documents/zotero";
         "extensions.zotero.reader.contentDarkMode" = false;
         "extensions.zotero.uiDensity" = "compact";

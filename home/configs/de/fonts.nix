@@ -20,6 +20,8 @@
 
     fira-code
     nerd-fonts.fira-code
+
+    lmodern
   ];
 
   fonts = {
