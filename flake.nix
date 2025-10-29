@@ -148,13 +148,34 @@
         };
 
       homeConfigurations.shreyas-mars = home-manager.lib.homeManagerConfiguration {
-        pkgs = [ ];
+        inherit pkgs;
         modules = [ ./home/mars ];
       };
 
       homeConfigurations.shreyas-roux = home-manager.lib.homeManagerConfiguration {
-        pkgs = [ ];
+        inherit pkgs;
         modules = [ ./home/roux ];
+      };
+
+      homeConfigurations.sminocha7-carlenny = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = {
+          inherit
+            inputs
+            system
+            mypkgs
+            pkgs-unstable
+            ;
+          gui = false;
+        };
+
+        modules = [
+          inputs.nixvim.homeModules.nixvim
+          inputs.catppuccin.homeModules.catppuccin
+          inputs.sops-nix.homeManagerModules.sops
+
+          ./home/carlenny
+        ];
       };
 
       nixOnDroidConfigurations.mercury = nix-on-droid.lib.nixOnDroidConfiguration {
