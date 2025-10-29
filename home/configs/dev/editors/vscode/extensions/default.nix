@@ -72,15 +72,16 @@ in
       sclu1034.justfile
       mikestead.dotenv
       mechatroner.rainbow-csv
+
       # vscode.smali
       # w-wterdan.smali
       loyieking.smalise
+      astro-build.astro-vscode
 
       # a5huynh.vscode-ron
       # adelphes.android-dev-ext
       # adguard.adblock
       # arwinneil.lolcode
-      # astro-build.astro-vscode
       # asvetliakov.vscode-neovim
       # basdp.language-gas
       # bmalehorn.vscode-fish

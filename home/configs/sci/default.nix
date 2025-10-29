@@ -1,7 +1,14 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  gui,
+  ...
+}:
 {
   imports = [
     ./numbat.nix
+  ]
+  ++ lib.optionals gui [
     ./zotero.nix
   ];
 

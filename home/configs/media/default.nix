@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   gui,
   ...
 }:
@@ -19,6 +20,8 @@
       kdePackages.kolourpaint
       inkscape
       gimp3
+
+      pkgs-unstable.audacity
 
       pavucontrol
       pwvucontrol
