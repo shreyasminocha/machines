@@ -128,4 +128,5 @@ in
   "Mod+equal".action = set-column-width "+10%";
 
   "Mod+shift+return".action = maximize-column;
+  "ctrl+Mod+shift+return".action = set-column-width "50%";
 }

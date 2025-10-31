@@ -170,10 +170,6 @@
         };
 
         modules = [
-          inputs.nixvim.homeModules.nixvim
-          inputs.catppuccin.homeModules.catppuccin
-          inputs.sops-nix.homeManagerModules.sops
-
           ./home/carlenny
         ];
       };

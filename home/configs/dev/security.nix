@@ -38,13 +38,13 @@
       wireshark
     ];
 
-  home.file."/home/shreyas/.config/gdb/gdbearlyinit" = {
+  home.file.".config/gdb/gdbearlyinit" = {
     text = ''
       set startup-quietly on
     '';
   };
 
-  home.file."/home/shreyas/.config/gdb/gdbinit" = {
+  home.file.".config/gdb/gdbinit" = {
     text = ''
       set debuginfod enabled on
       set show-tips off
