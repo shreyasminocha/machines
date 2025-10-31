@@ -29,8 +29,11 @@
       inputs.pwndbg.packages.${system}.pwndbg
     ]
     ++ lib.optionals gui [
-      ghidra-bin
       # inputs.ida-free.legacyPackages.${system}.ida-free
+      ghidra-bin
+
+      iaito
+      (cutter.withPlugins (ps: with ps; [ rz-ghidra ]))
 
       wireshark
     ];

@@ -10,6 +10,7 @@
     ./git.nix
     ./gpg.nix
 
+    ./c.nix
     ./python.nix
     ./js.nix
     ./rust.nix
