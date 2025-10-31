@@ -22,11 +22,6 @@ in
       recursive = "zfs";
       useTemplate = [ "snapshots" ];
     };
-
-    datasets."zroot/swap" = {
-      recursive = "zfs";
-      useTemplate = [ "exclude" ];
-    };
   };
 
   services.restic.backups.b2 = {
