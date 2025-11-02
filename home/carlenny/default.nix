@@ -1,7 +1,6 @@
 {
   inputs,
   config,
-  lib,
   pkgs,
   ...
 }:
@@ -23,23 +22,23 @@
   home.shell.enableFishIntegration = true;
 
   home.sessionVariables = {
-    PATH = lib.strings.join ":" [
+    PATH = (
       "${config.home.homeDirectory}/.nix-profile/bin"
-      "/usr/local/sbin"
-      "/usr/local/bin"
-      "/usr/sbin"
-      "/usr/bin"
-      "/sbin"
-      "/bin"
-      "/usr/games"
-      "/usr/local/games"
-      "/snap/bin"
-    ];
+      + ":/usr/local/sbin"
+      + ":/usr/local/bin"
+      + ":/usr/sbin"
+      + ":/usr/bin"
+      + ":/sbin"
+      + ":/bin"
+      + ":/usr/games"
+      + ":/usr/local/games"
+      + ":/snap/bin"
+    );
     TERMINFO = "${pkgs.kitty}/lib/kitty/terminfo";
   };
 
   # if we can't chsh...
-  home.file.".bashrc".text = config.programs.fish.package;
+  home.file.".bashrc".text = "${config.programs.fish.package}/bin/fish";
 
   home.file.".config/nix/nix.conf".text = "extra-experimental-features = nix-command flakes";
 

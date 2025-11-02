@@ -3,6 +3,9 @@ run: format check switch
 switch:
   nh os switch --ask ~/flake
 
+hm:
+  home-manager switch --flake .#sminocha7-carlenny
+
 check:
   statix check
 
