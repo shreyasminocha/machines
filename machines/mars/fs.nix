@@ -47,7 +47,8 @@
     fsType = "ext4";
   };
 
-  zramSwap.enable = true;
+  # maybe this is causing the crashes?
+  # zramSwap.enable = true;
 
   services.zfs = {
     autoScrub.enable = true;

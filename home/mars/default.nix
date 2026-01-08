@@ -1,5 +1,6 @@
 {
   inputs,
+  config,
   secrets,
   ...
 }:
@@ -37,6 +38,13 @@
   home.homeDirectory = "/home/shreyas";
 
   home.sessionVariables = {
+    PATH =
+      "${config.home.homeDirectory}/documents/bin"
+      + ":/run/wrappers/bin"
+      + ":${config.home.homeDirectory}/.nix-profile/bin"
+      # + ":${config.home.homeDirectory}/.local/state/nix/profile/bin"
+      + ":/etc/profiles/per-user/${config.home.username}/bin"
+      + ":/run/current-system/sw/bin";
     BROWSER = "librewolf";
     TERMINAL = "kitty";
     # GTK_USE_PORTAL = 1;

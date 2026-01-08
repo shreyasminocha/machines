@@ -17,6 +17,7 @@
         "extensions.zotero.useDataDir" = true;
         "extensions.zotero.tagSelector.showAutomatic" = false;
         "extensions.zotero.autoRenameFiles" = true;
+        "extensions.zotero.recursiveCollections" = true;
 
         "extensions.zotero.downloadAssociatedFiles" = true;
         "extensions.zotero.autoRecognizeFiles" = true;

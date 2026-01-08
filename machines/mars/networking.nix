@@ -17,7 +17,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
-  networking.stevenblack.enable = true;
+  # networking.stevenblack.enable = true;
 
   services.vnstat.enable = true;
 

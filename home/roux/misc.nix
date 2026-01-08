@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 {
   home.packages = with pkgs; [
     # TODO: these are deps of something else iirc
@@ -14,7 +19,10 @@
     lm_sensors
   ];
 
-  programs.yt-dlp.enable = true;
+  programs.yt-dlp = {
+    enable = true;
+    package = pkgs-unstable.yt-dlp; # youtube moves fast
+  };
 
   # roux-specific settings here
   programs.beets.settings = {
@@ -30,8 +38,8 @@
       # "mbcollection"
     ];
 
-    # TODO: package this
-    pluginpath = [ "/home/shreyas/beetsplug/beetsplug" ];
+    # TODO: package this stuff
+    pluginpath = [ "${config.home.homeDirectory}/beetsplug/beetsplug" ];
 
     arttools = {
       size_thresh = 500;

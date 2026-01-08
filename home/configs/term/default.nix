@@ -7,34 +7,40 @@
   imports = [
     ./fish.nix
     ./starship.nix
-    ./kitty.nix
     ./zellij.nix
-    ./bat.nix
     ./atuin.nix
-    ./fastfetch.nix
+    ./bat.nix
     ./yazi.nix
+    ./fastfetch.nix
+    ./kitty.nix
   ];
 
   home.packages = with pkgs; [
-    tre-command
-    lsof
-    powertop
     curl
     wget
-    restic
-    intermodal
-    mktorrent
-    trash-cli
-    imagemagick
-    speedtest-cli
     xh
-    just
+
+    tre-command
+    dust
+    doggo
+    hexyl
+
+    lsof
+    powertop
+
     parallel
     inetutils
+    just
+
+    restic
+
+    intermodal
+    mktorrent
+
+    trash-cli
+    imagemagick
     nmap
-    doggo
-    dust
-    hexyl
+    speedtest-cli
   ];
 
   programs.zoxide = {
@@ -56,18 +62,18 @@
     })
   ];
 
+  programs.broot = {
+    enable = true;
+  };
+
   programs.nushell.enable = true;
 
   programs.ripgrep.enable = true;
   programs.fd.enable = true;
-  programs.htop.enable = true;
 
+  programs.htop.enable = true;
   programs.btop = {
     enable = true;
   };
   catppuccin.btop.enable = true;
-
-  programs.broot = {
-    enable = true;
-  };
 }

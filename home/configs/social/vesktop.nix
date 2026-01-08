@@ -13,7 +13,7 @@
       discordBranch = "stable";
     };
     vencord = {
-      # useSystem = true; # TODO: broken as of 2025-10
+      #useSystem = true; # broken as of 2025-11
       useSystem = false;
       settings = {
         autoUpdate = false;

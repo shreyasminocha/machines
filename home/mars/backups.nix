@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   services.syncthing = {
     enable = true;
@@ -7,7 +8,7 @@
 
   services.syncthing.settings.folders = {
     "calibre" = {
-      path = "/home/shreyas/documents/calibre";
+      path = "${config.home.homeDirectory}/documents/calibre";
       type = "sendonly";
       devices = [ "roux" ];
     };

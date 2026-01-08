@@ -77,6 +77,10 @@ in
       # w-wterdan.smali
       loyieking.smalise
       astro-build.astro-vscode
+      bradlc.vscode-tailwindcss
+      oven.bun-vscode
+
+      # ocamllabs.ocaml-platform
 
       # a5huynh.vscode-ron
       # adelphes.android-dev-ext
@@ -86,7 +90,6 @@ in
       # basdp.language-gas
       # bmalehorn.vscode-fish
       # bmewburn.vscode-intelephense-client
-      # bradlc.vscode-tailwindcss
       # csstools.postcss
       # denoland.vscode-deno
       # eww-yuck.yuck

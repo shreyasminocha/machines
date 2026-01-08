@@ -7,6 +7,8 @@
         numpy
         pandas
         matplotlib
+        # ipykernel
+        pip
       ]
     ))
 

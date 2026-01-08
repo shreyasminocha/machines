@@ -20,6 +20,7 @@
       "rgi" = "rg -i";
       "batnw" = "bat --wrap=never";
       "ff" = "fastfetch";
+      "dog" = "doggo";
     };
     functions = {
       envsource = {

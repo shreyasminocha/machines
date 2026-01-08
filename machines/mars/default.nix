@@ -101,6 +101,7 @@
       "vscode-extension-github-copilot"
       "steam"
       "steam-unwrapped"
+      "google-chrome"
       "ida-free"
     ];
 

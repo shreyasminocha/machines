@@ -19,6 +19,7 @@
       pkgs-unstable.frida-tools # TODO: switch to stable once it has 14.x.x
 
       pwntools
+      wabt
 
       # tshark
       mitmproxy

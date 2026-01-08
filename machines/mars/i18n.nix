@@ -1,5 +1,5 @@
 {
-  time.timeZone = "US/Eastern";
+  time.timeZone = "Asia/Kolkata";
 
   i18n = {
     # defaultLocale = "en_US";

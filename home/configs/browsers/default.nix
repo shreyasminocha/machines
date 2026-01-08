@@ -3,6 +3,7 @@
   imports = [ ./librewolf.nix ];
 
   home.packages = with pkgs; [
+    google-chrome
     tor-browser
     ladybird
     lynx
