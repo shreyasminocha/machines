@@ -9,8 +9,8 @@ in
 pkgs.poetry2nix.mkPoetryApplication {
   overrides = pkgs.poetry2nix.overrides.withDefaults (
     final: prev: {
-      python = pkgs.python312;
-      # "PySide6" = pkgs.python312Packages.pyside6;
+      python = pkgs.python313;
+      # "PySide6" = pkgs.python313Packages.pyside6;
       mpegdash = prev.mpegdash.overridePythonAttrs (old: {
         nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ final.setuptools ];
       });
@@ -30,7 +30,7 @@ pkgs.poetry2nix.mkPoetryApplication {
           sha256 = "sha256-sYwHISv+rWJDRbuOHWFBzc8Vo5c2mU6guUA1rSsboXc=";
         };
 
-        nativeBuildInputs = [ pkgs.python312Packages.setuptools-scm ];
+        nativeBuildInputs = [ pkgs.python313Packages.setuptools-scm ];
 
         doCheck = false;
         format = "pyproject";

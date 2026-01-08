@@ -65,9 +65,10 @@ in
     "5%-"
   ];
 
-  "Print".action = screenshot-window;
-  "shift+Print".action = screenshot;
-  "ctrl+shift+Print".action = screenshot;
+  #"Print".action = screenshot-window;
+  #"Print".action = screenshot;
+  #"shift+Print".action = screenshot;
+  #"ctrl+shift+Print".action = screenshot;
 
   "Mod+b".action.spawn = librewolf;
   "Mod+shift+b".action.spawn = [

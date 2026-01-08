@@ -24,7 +24,7 @@
     extraPackages = with pkgs; [
       # intel-compute-runtime
       intel-media-driver
-      vaapiVdpau
+      libva-vdpau-driver
       libvdpau-va-gl
     ];
   };
@@ -33,9 +33,11 @@
     LIBVA_DRIVER_NAME = "iHD";
   };
 
-  services.logind.lidSwitch = "suspend-then-hibernate";
-  services.logind.lidSwitchExternalPower = "suspend";
-  services.logind.lidSwitchDocked = "suspend";
+  services.logind.settings.Login = {
+    HandleLidSwitch = "suspend-then-hibernate";
+    HandleLidSwitchExternalPower = "suspend";
+    HandleLidSwitchDocked = "suspend";
+  };
 
   # services.thermald.enable = true;
 

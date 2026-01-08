@@ -18,7 +18,7 @@
       type = "fcitx5";
       fcitx5 = {
         addons = with pkgs; [
-          fcitx5-chinese-addons
+          qt6Packages.fcitx5-chinese-addons
           fcitx5-table-other
           fcitx5-table-extra
           fcitx5-m17n

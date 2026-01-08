@@ -22,7 +22,7 @@
   home.shell.enableFishIntegration = true;
 
   home.sessionVariables = {
-    PATH = (
+    PATH =
       "${config.home.homeDirectory}/.nix-profile/bin"
       + ":/usr/local/sbin"
       + ":/usr/local/bin"
@@ -32,8 +32,7 @@
       + ":/bin"
       + ":/usr/games"
       + ":/usr/local/games"
-      + ":/snap/bin"
-    );
+      + ":/snap/bin";
     TERMINFO = "${pkgs.kitty}/lib/kitty/terminfo";
   };
 

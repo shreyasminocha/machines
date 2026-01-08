@@ -2,16 +2,17 @@
 {
   programs.beets.enable = true;
 
-  programs.beets.package = pkgs.beets-unstable.override {
+  programs.beets.package = pkgs.python3.pkgs.beets.override {
     pluginOverrides = {
       alternatives = {
         enable = true;
-        propagatedBuildInputs = [ pkgs.beetsPackages.alternatives ];
+        propagatedBuildInputs = [ pkgs.python3.pkgs.beets-alternatives ];
       };
-      copyartifacts = {
-        enable = true;
-        propagatedBuildInputs = [ pkgs.beetsPackages.copyartifacts ];
-      };
+      # TOFIX: temp disabled because the build is broken
+      #copyartifacts = {
+      #  enable = true;
+      #  propagatedBuildInputs = [ pkgs.python3.pkgs.beets-copyartifacts ];
+      #};
     };
   };
 
@@ -87,7 +88,7 @@
       "convert"
       "hook"
       "alternatives"
-      "copyartifacts"
+      #"copyartifacts"
       "web"
     ];
 
@@ -123,16 +124,16 @@
       quiet = true;
     };
 
-    copyartifacts = {
-      extensions = [
-        ".cue"
-        ".log"
-      ];
-      paths = {
-        "ext:log" = "$albumpath/$album";
-        "ext:cue" = "$albumpath/$album";
-      };
-    };
+    # copyartifacts = {
+    #   extensions = [
+    #     ".cue"
+    #     ".log"
+    #   ];
+    #   paths = {
+    #     "ext:log" = "$albumpath/$album";
+    #     "ext:cue" = "$albumpath/$album";
+    #   };
+    # };
 
     export = {
       json = { };
