@@ -1,15 +1,24 @@
-{ pkgs, lib, ... }:
 {
   programs.git = {
     enable = true;
     settings = {
-      user.name = "Shreyas Minocha";
-      user.email = "sm-git@riseup.net";
-
+      user = {
+        name = "Shreyas Minocha";
+        email = "sm-git@riseup.net";
+      };
       signing = {
         signByDefault = true;
         key = "0xAD8501B1B424968F";
       };
+
+      push = {
+        default = "current";
+        autoSetupRemote = true;
+      };
+      pull.ff = "only";
+      init.defaultBranch = "main";
+      submodule.recurse = true;
+      lfs.locksverify = false;
 
       alias =
         let
@@ -80,25 +89,6 @@
       ".idea"
       "local.properties"
     ];
-
-    extraConfig = {
-      push = {
-        default = "current";
-        autoSetupRemote = true;
-      };
-      pull = {
-        ff = "only";
-      };
-      init = {
-        defaultBranch = "main";
-      };
-      submodule = {
-        recurse = true;
-      };
-      lfs = {
-        locksverify = false;
-      };
-    };
 
     lfs.enable = true;
   };

@@ -33,6 +33,13 @@
           end
         '';
       };
+      mkd = {
+        description = "mkdir and then cd";
+        body = ''
+          mkdir "$argv[1]"
+          cd "$argv[1]"
+        '';
+      };
     };
     shellInit = ''
       fish_add_path "$HOME/documents/bin"

@@ -48,6 +48,8 @@
     };
   };
 
+  programs.foliate.enable = gui;
+
   programs.nh = {
     enable = true;
   };
