@@ -52,9 +52,9 @@ in
   extensions =
     builtins.concatLists (map (x: x.extensions) otherExtensions)
     ++ (with vscode-marketplace; [
-      catppuccin.catppuccin-vsc
+      # catppuccin.catppuccin-vsc
       # ahmadawais.shades-of-purple
-      # arcticicestudio.nord-visual-studio-code
+      arcticicestudio.nord-visual-studio-code
       # equinusocio.vsc-community-material-theme
 
       arrterian.nix-env-selector
@@ -77,8 +77,8 @@ in
       # w-wterdan.smali
       loyieking.smalise
       astro-build.astro-vscode
-      bradlc.vscode-tailwindcss
-      oven.bun-vscode
+      # bradlc.vscode-tailwindcss
+      # oven.bun-vscode
 
       # ocamllabs.ocaml-platform
 

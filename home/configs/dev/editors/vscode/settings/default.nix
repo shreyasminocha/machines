@@ -228,7 +228,7 @@ in
   };
   "workbench.editor.decorations.badges" = false;
   "workbench.editor.empty.hint" = "hidden";
-  "workbench.colorTheme" = "Catppuccin Mocha";
+  # "workbench.colorTheme" = "Catppuccin Mocha";
   "workbench.commandPalette.experimental.enableNaturalLanguageSearch" = false;
   "workbench.layoutControl.enabled" = false;
 }

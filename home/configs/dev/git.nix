@@ -5,11 +5,10 @@
       user = {
         name = "Shreyas Minocha";
         email = "sm-git@riseup.net";
+        signingkey = "0xAD8501B1B424968F";
       };
-      signing = {
-        signByDefault = true;
-        key = "0xAD8501B1B424968F";
-      };
+
+      commit.gpgsign = true;
 
       push = {
         default = "current";
@@ -17,6 +16,7 @@
       };
       pull.ff = "only";
       init.defaultBranch = "main";
+
       submodule.recurse = true;
       lfs.locksverify = false;
 
