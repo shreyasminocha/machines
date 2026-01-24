@@ -27,6 +27,8 @@ in
       "wheel"
       "networkmanager"
       "docker"
+      "dialout"
+      "uucp"
     ];
     shell = pkgs.fish;
     hashedPasswordFile = config.sops.secrets.${login-password}.path;
