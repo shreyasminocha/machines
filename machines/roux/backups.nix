@@ -25,12 +25,14 @@ in
     };
   };
 
-  services.mysqlBackup = {
-    location = "/var/backup/mysql";
-  };
-  services.postgresqlBackup = {
-    location = "/var/backup/postgresql";
-  };
+  # TODO: re-enable: disabled on the suspicion that it's
+  # causing my crashes
+  # services.mysqlBackup = {
+  #   location = "/var/backup/mysql";
+  # };
+  # services.postgresqlBackup = {
+  #   location = "/var/backup/postgresql";
+  # };
 
   services.restic.backups.b2 = {
     initialize = true;
