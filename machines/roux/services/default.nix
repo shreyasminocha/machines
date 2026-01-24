@@ -28,6 +28,7 @@
     ./maloja.nix
     ./archive-rice.nix
     ./mirrors.nix
+    ./freshrss.nix
     # ./soju.nix
   ];
 
