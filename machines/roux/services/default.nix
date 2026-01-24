@@ -10,7 +10,7 @@
   };
 
   imports = [
-    ./nextcloud
+    ./nextcloud.nix
     ./tmp.nix
     ./vaultwarden.nix
     ./shreyas-slides.nix
