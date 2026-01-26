@@ -20,7 +20,7 @@
       whipper
       cyanrip
 
-      mypkgs.tidal-dl-ng
+      # mypkgs.tidal-dl-ng
     ]
     ++ lib.optionals gui [
       feishin
