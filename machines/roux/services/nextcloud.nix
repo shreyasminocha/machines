@@ -20,11 +20,17 @@ in
 
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud31;
+    package = pkgs.nextcloud32;
     hostName = "cloud.minocha.family";
     webserver = "caddy";
-    appstoreEnable = false;
     https = true;
+
+    appstoreEnable = false;
+    extraApps = {
+      inherit (config.services.nextcloud.package.packages.apps) contacts calendar;
+    };
+    # extraAppsEnable = true;
+
     config = {
       dbtype = "pgsql";
       dbuser = "nextcloud";
