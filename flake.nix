@@ -56,11 +56,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    poetry2nix = {
-      url = "github:nix-community/poetry2nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     nix-vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -92,7 +87,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
       # TODO: get rid of this overlay
-      mypkgs = import ./pkgs { pkgs = pkgs.extend inputs.poetry2nix.overlays.default; };
+      mypkgs = import ./pkgs { inherit pkgs; };
     in
     {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;

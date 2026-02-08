@@ -9,7 +9,7 @@
     ./xdg.nix
     ./xkb.nix
 
-    ./gtk.nix
+    # ./gtk.nix
     ./kvantum.nix
 
     ./waybar.nix

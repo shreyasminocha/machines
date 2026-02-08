@@ -22,6 +22,7 @@
       gimp3
 
       pkgs-unstable.audacity
+      obs-studio
 
       pavucontrol
       pwvucontrol

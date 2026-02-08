@@ -37,6 +37,9 @@
 
         libreoffice-qt
         calibre
+        poppler
+
+        monero-gui
       ]
     );
 

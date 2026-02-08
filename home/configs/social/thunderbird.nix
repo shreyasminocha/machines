@@ -29,6 +29,7 @@
           "mail.default_send_format" = 1;
           "mail.e2ee.auto_enable" = true;
           "mail.inline_attachments" = false;
+          "mail.purge.ask" = false;
           # "mail.root.imap" = "/home/shreyas/documents/email";
           "mail.shell.checkDefaultClient" = false;
           "mail.tabs.autoHide" = false;
