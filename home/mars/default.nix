@@ -11,7 +11,7 @@
 
     inputs.nixvim.homeModules.nixvim
     inputs.catppuccin.homeModules.catppuccin
-    inputs.plasma-manager.homeManagerModules.plasma-manager
+    inputs.plasma-manager.homeModules.plasma-manager
 
     secrets.homeManagerModules.mars
     secrets.homeManagerModules.email-accounts

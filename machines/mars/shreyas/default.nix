@@ -46,6 +46,9 @@ in
     "/share/xdg-desktop-portal"
   ];
 
+  # "Note that PAM must be configured to enable swaylock to perform authentication."
+  security.pam.services.swaylock = { };
+
   services.fprintd = {
     enable = true;
   };
