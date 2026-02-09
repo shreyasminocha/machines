@@ -2,15 +2,10 @@ let
   login-password = "login/shreyas";
 in
 {
-  inputs,
-  system,
   config,
   pkgs,
   ...
 }:
-let
-  hyprland = inputs.hyprland.packages."${system}";
-in
 {
   imports = [
     ./home.nix
@@ -37,11 +32,6 @@ in
   programs.uwsm = {
     enable = true;
     waylandCompositors = {
-      hyprland = {
-        prettyName = "Hyprland";
-        comment = "hyprland";
-        binPath = "/run/current-system/sw/bin/Hyprland";
-      };
       niri = {
         prettyName = "niri";
         comment = "niri";
@@ -50,16 +40,11 @@ in
     };
   };
 
-  # > Required:
-  # >
-  # > NixOS Module: enables critical components needed to run Hyprland properly.
-  # > Without this, you may have issues with missing session files in your Display Manager.
-  programs.hyprland = {
-    enable = true;
-    package = hyprland.hyprland;
-    portalPackage = hyprland.xdg-desktop-portal-hyprland;
-    # withUWSM = true;
-  };
+  # required, for some reason
+  environment.pathsToLink = [
+    "/share/applications"
+    "/share/xdg-desktop-portal"
+  ];
 
   services.fprintd = {
     enable = true;

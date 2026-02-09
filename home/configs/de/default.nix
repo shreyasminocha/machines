@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    # ./hypr
     ./niri
 
     ./fonts.nix

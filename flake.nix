@@ -28,15 +28,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland = {
-      url = "github:hyprwm/Hyprland?ref=v0.48.1"; # cachix
-    };
-
-    hy3 = {
-      url = "github:outfoxxed/hy3?ref=hl0.48.0";
-      inputs.hyprland.follows = "hyprland";
-    };
-
     niri = {
       url = "github:sodiboo/niri-flake"; # cachix
     };

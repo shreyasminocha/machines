@@ -6,8 +6,6 @@
 }:
 {
   imports = [
-    # inputs.hyprland.homeManagerModules.default
-
     inputs.niri.homeModules.niri
     # inputs.niri.homeModules.config
 

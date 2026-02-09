@@ -24,8 +24,6 @@
           modules-left = [
             "niri/workspaces"
             "niri/window"
-
-            # "hyprland/workspaces"
           ];
           modules-right = [
             "cpu"

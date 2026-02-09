@@ -15,10 +15,9 @@
       enable = true;
       config = {
         common = {
-          # default = [ "hyprland" "kde" "gtk" ];
           default = [
-            "hyprland"
             "kde"
+            "gtk"
           ];
           "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
         };
@@ -28,7 +27,6 @@
         kdePackages.xdg-desktop-portal-kde
         # xdg-desktop-portal-gtk
         xdg-desktop-portal-gnome
-        # inputs.hyprland.packages.${system}.xdg-desktop-portal-hyprland
       ];
       xdgOpenUsePortal = true;
     };
