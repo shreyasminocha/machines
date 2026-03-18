@@ -23,6 +23,7 @@
 
       pkgs-unstable.audacity
       obs-studio
+      handbrake
 
       pavucontrol
       pwvucontrol

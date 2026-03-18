@@ -1,5 +1,7 @@
 {
   pkgs,
+  pkgs-unstable,
+  mypkgs,
   gui,
   ...
 }:
@@ -13,14 +15,20 @@
     [
       sops
 
+      zip
       unzip
+      p7zip
+      ouch
       file
 
       backblaze-b2
       qrencode
       bleachbit
-      ouch
+
       pandoc
+      pkgs-unstable.harper
+      mypkgs.harper-cli
+      rendercv
     ]
     ++ lib.optionals gui (
       with kdePackages;
@@ -38,6 +46,11 @@
         libreoffice-qt
         calibre
         poppler
+
+        keepassxc
+
+        kiwix
+        kubo
 
         monero-gui
       ]

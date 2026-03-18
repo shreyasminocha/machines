@@ -34,5 +34,7 @@
     act
     pkgs-unstable.vulnix
     jujutsu
+    http-server
+    claude-code
   ];
 }

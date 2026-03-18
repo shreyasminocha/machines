@@ -27,7 +27,14 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
-    wireplumber.enable = true;
+    wireplumber = {
+      enable = true;
+      extraConfig.no-ucm = {
+        "monitor.alsa.properties" = {
+          "alsa.use-ucm" = false;
+        };
+      };
+    };
   };
 
   services.libinput.enable = true;
@@ -42,6 +49,43 @@
     NIXOS_OZONE_WL = "1";
     GTK_USE_PORTAL = "1";
     UV_LINK_MODE = "copy"; # TODO: move to h-m
+  };
+
+  environment.sessionVariables = {
+    XDG_CURRENT_DESKTOP = "niri";
+    XDG_SESSION_TYPE = "wayland";
+    XDG_SESSION_DESKTOP = "niri";
+  };
+
+  xdg = {
+    portal = {
+      enable = true;
+      config = {
+        common = {
+          default = [
+            "kde"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
+        };
+        niri = {
+          default = [
+            "kde"
+            "gtk"
+            "gnome"
+          ];
+          "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+          "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
+        };
+      };
+      extraPortals = with pkgs; [
+        # xdg-desktop-portal-wlr
+        kdePackages.xdg-desktop-portal-kde
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+      ];
+      xdgOpenUsePortal = true;
+    };
   };
 
   nix = {

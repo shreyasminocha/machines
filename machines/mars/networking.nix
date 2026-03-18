@@ -1,8 +1,16 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 {
   networking.hostName = "mars";
   networking.hostId = "f00fdeed";
-  networking.networkmanager.enable = true;
+
+  networking.networkmanager = {
+    enable = true;
+    plugins = with pkgs; [
+      networkmanager-openconnect
+      networkmanager-openvpn
+      # networkmanager-fortisslvpn
+    ];
+  };
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
@@ -13,10 +21,10 @@
 
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
+  # causes trouble sometimes and is read-only so it's annoying to patch
   # networking.stevenblack.enable = true;
 
   services.vnstat.enable = true;

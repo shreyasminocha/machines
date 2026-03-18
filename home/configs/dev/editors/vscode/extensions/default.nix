@@ -80,6 +80,7 @@ in
       # bradlc.vscode-tailwindcss
       # oven.bun-vscode
 
+      unifiedjs.vscode-mdx
       # ocamllabs.ocaml-platform
 
       # a5huynh.vscode-ron
@@ -141,7 +142,6 @@ in
       # tomoyukim.vscode-mermaid-editor
       # tonybaloney.vscode-pets
       # twxs.cmake
-      # unifiedjs.vscode-mdx
       # vadimcn.vscode-lldb
       # vsciot-vscode.vscode-arduino
       # vscjava.vscode-gradle
