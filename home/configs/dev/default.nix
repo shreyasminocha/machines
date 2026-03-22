@@ -35,6 +35,14 @@
     pkgs-unstable.vulnix
     jujutsu
     http-server
-    claude-code
+    tamarin-prover
   ];
+
+  programs.claude-code = {
+    enable = true;
+    settings = {
+      theme = "dark";
+      includeCoAuthoredBy = false;
+    };
+  };
 }

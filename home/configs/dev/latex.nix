@@ -2,7 +2,10 @@
 {
   home.packages = with pkgs; [
     tectonic
-    (texliveFull.withPackages (ps: [ ps.chktex ]))
+    (texliveFull.withPackages (ps: [
+      ps.chktex
+      ps.biblatex-ieee
+    ]))
     ltex-ls
     bibtex-tidy
   ];

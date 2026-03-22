@@ -9,6 +9,8 @@
         matplotlib
         # ipykernel
         pip
+
+        pygments # because it provides `pygmentize` which the latex package `minted` needs
       ]
     ))
 

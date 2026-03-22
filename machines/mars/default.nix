@@ -134,21 +134,21 @@
       "cups-toshiba-estudio"
       "displaylink"
       "exact-audio-copy"
-      "checkra1n"
       "slack"
       "discord"
       "zoom"
+      "google-chrome"
       "typora"
-      "vscode-extension-github-copilot"
       "steam"
       "steam-unwrapped"
-      "google-chrome"
+      "checkra1n"
       "ida-free"
+      "claude-code"
+      "vscode-extension-anthropic-claude-code"
+      "vscode-extension-github-copilot"
     ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "electron-36.9.5"
-  ];
+  nixpkgs.config.permittedInsecurePackages = [ ];
 
   nixpkgs.config.allowBroken = true;
 

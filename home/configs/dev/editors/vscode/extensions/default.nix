@@ -83,6 +83,10 @@ in
       unifiedjs.vscode-mdx
       # ocamllabs.ocaml-platform
 
+      anthropic.claude-code
+
+      tamarin-prover.tamarin-prover
+
       # a5huynh.vscode-ron
       # adelphes.android-dev-ext
       # adguard.adblock

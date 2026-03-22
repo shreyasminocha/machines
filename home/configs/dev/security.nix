@@ -1,7 +1,6 @@
 {
   inputs,
   pkgs,
-  pkgs-unstable,
   lib,
   system,
   gui,
@@ -16,7 +15,7 @@
       libusbmuxd
       checkra1n
       android-tools
-      pkgs-unstable.frida-tools # TODO: switch to stable once it has 14.x.x
+      frida-tools
 
       pwntools
       wabt

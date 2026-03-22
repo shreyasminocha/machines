@@ -28,7 +28,7 @@
       pandoc
       pkgs-unstable.harper
       mypkgs.harper-cli
-      rendercv
+      pkgs-unstable.rendercv # TODO: switch to stable once it has 2.7
     ]
     ++ lib.optionals gui (
       with kdePackages;

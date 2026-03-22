@@ -8,7 +8,9 @@
         signingkey = "0xAD8501B1B424968F";
       };
 
-      commit.gpgsign = true;
+      commit.gpgSign = true;
+      tag.gpgSign = true;
+      push.gpgSign = "if-asked";
 
       push = {
         default = "current";
@@ -20,6 +22,8 @@
       submodule.recurse = true;
       lfs.locksverify = false;
 
+      advice.detachedHead = false;
+
       alias =
         let
           update = "commit -m 'Update'";
@@ -29,7 +33,9 @@
           undo = "reset HEAD~";
           resetfile = "checkout HEAD --";
           amend-now = "commit --amend --date=now";
+          carn = "commit --amend --date=now"; # 'commit amend right now'
           cane = "commit --amend --no-edit";
+          ca = "commit --amend";
           lol = "log --oneline";
           last = "log -1";
           latest = "log -1";
