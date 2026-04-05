@@ -16,6 +16,7 @@
     ./services
 
     ./shreyas
+    ./gh-actions
   ];
 
   users.groups.music.members = [

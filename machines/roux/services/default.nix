@@ -29,6 +29,8 @@
     ./archive-rice.nix
     ./mirrors.nix
     ./freshrss.nix
+    ./tor.nix
+    ./sm-onion.nix
     # ./soju.nix
   ];
 
