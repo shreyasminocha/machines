@@ -57,37 +57,6 @@
     XDG_SESSION_DESKTOP = "niri";
   };
 
-  xdg = {
-    portal = {
-      enable = true;
-      config = {
-        common = {
-          default = [
-            "kde"
-            "gtk"
-          ];
-          "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
-        };
-        niri = {
-          default = [
-            "kde"
-            "gtk"
-            "gnome"
-          ];
-          "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
-          "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
-        };
-      };
-      extraPortals = with pkgs; [
-        # xdg-desktop-portal-wlr
-        kdePackages.xdg-desktop-portal-kde
-        xdg-desktop-portal-gtk
-        xdg-desktop-portal-gnome
-      ];
-      xdgOpenUsePortal = true;
-    };
-  };
-
   nix = {
     settings =
       let
@@ -146,6 +115,7 @@
       "claude-code"
       "vscode-extension-anthropic-claude-code"
       "vscode-extension-github-copilot"
+      "helvetica-neue-lt-std"
     ];
 
   nixpkgs.config.permittedInsecurePackages = [ ];

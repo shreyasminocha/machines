@@ -22,7 +22,6 @@
       gimp3
 
       pkgs-unstable.audacity
-      obs-studio
       handbrake
 
       pavucontrol
@@ -32,4 +31,11 @@
   programs.yt-dlp.enable = true;
 
   programs.imv.enable = true;
+
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+    ];
+  };
 }

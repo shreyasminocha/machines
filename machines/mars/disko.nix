@@ -21,7 +21,7 @@
               size = "32G";
               content = {
                 type = "swap";
-                discardPolicy = "both";
+                discardPolicy = "once";
                 resumeDevice = true;
               };
             };

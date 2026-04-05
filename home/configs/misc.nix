@@ -42,6 +42,7 @@
         okular
         ark
         filelight
+        rssguard
 
         libreoffice-qt
         calibre

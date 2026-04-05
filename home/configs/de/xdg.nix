@@ -21,11 +21,19 @@
           ];
           "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
         };
+        niri = {
+          default = [
+            "gnome"
+            "kde"
+            "gtk"
+          ];
+          "org.freedesktop.impl.portal.ScreenCast" = [ "gnome" ];
+          "org.freedesktop.impl.portal.Screenshot" = [ "gnome" ];
+        };
       };
       extraPortals = with pkgs; [
-        xdg-desktop-portal-wlr
         kdePackages.xdg-desktop-portal-kde
-        # xdg-desktop-portal-gtk
+        xdg-desktop-portal-gtk
         xdg-desktop-portal-gnome
       ];
       xdgOpenUsePortal = true;
@@ -40,6 +48,7 @@
         ark = "org.kde.ark.desktop";
         okular = "org.kde.okular.desktop";
         dolphin = "org.kde.dolphin.desktop";
+        gimp = "gimp.desktop";
       in
       {
         enable = true;
@@ -61,6 +70,7 @@
           "image/webp" = imv;
           "image/bmp" = imv;
           "image/vnd.microsoft.icon" = imv;
+          "image/x-xcf" = gimp;
 
           "video/mp4" = mpv;
           "video/mpeg" = mpv;
@@ -75,6 +85,7 @@
           "audio/x-wav" = mpv;
 
           "application/pdf" = okular;
+          "application/postscript" = okular;
           "application/x-tar" = ark;
           "application/gzip" = ark;
           "text/markdown" = "typora.desktop";

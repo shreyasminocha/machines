@@ -20,6 +20,7 @@
     ./typst.nix
 
     ./security.nix
+    ./ai.nix
   ];
 
   home.packages = with pkgs; [
@@ -35,14 +36,6 @@
     pkgs-unstable.vulnix
     jujutsu
     http-server
-    tamarin-prover
+    pkgs-unstable.tamarin-prover
   ];
-
-  programs.claude-code = {
-    enable = true;
-    settings = {
-      theme = "dark";
-      includeCoAuthoredBy = false;
-    };
-  };
 }
