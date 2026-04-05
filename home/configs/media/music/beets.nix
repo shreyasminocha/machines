@@ -1,12 +1,12 @@
-{ pkgs, ... }:
+{ pkgs-unstable, ... }:
 {
   programs.beets.enable = true;
 
-  programs.beets.package = pkgs.python3.pkgs.beets.override {
+  programs.beets.package = pkgs-unstable.python3.pkgs.beets.override {
     pluginOverrides = {
       alternatives = {
         enable = true;
-        propagatedBuildInputs = [ pkgs.python3.pkgs.beets-alternatives ];
+        propagatedBuildInputs = [ pkgs-unstable.python3.pkgs.beets-alternatives ];
       };
       # TOFIX: temp disabled because the build is broken
       #copyartifacts = {
@@ -77,6 +77,7 @@
       "advancedrewrite"
       "duplicates"
       # "mbcollection"
+      "musicbrainz"
       "mbsync"
       "missing"
       "unimported"
@@ -102,7 +103,8 @@
     };
 
     embedart = {
-      maxwidth = 500;
+      auto = false;
+      clearart_on_import = true;
     };
 
     thumbnails = {
@@ -119,7 +121,7 @@
     convert = {
       auto_keep = "yes";
       copy_album_art = "yes";
-      never_convert_lossy_files = "yes";
+      never_convert_lossy_files = true;
       delete_originals = false;
       quiet = true;
     };
