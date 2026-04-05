@@ -31,6 +31,7 @@
     ./freshrss.nix
     ./tor.nix
     ./sm-onion.nix
+    ./monerod.nix
     # ./soju.nix
   ];
 

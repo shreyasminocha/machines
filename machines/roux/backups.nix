@@ -55,6 +55,7 @@ in
       "/home/shreyas/services/nextcloud/data" # TODO: remove this
       "/home/shreyas/takeout"
       "/var/www/mirrors"
+      "/var/lib/monero"
     ];
 
     pruneOpts = [
