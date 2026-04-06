@@ -21,15 +21,20 @@ in
   services.nextcloud = {
     enable = true;
     package = pkgs.nextcloud32;
+
     hostName = "cloud.minocha.family";
     webserver = "caddy";
     https = true;
 
-    appstoreEnable = false;
-    extraApps = {
-      inherit (config.services.nextcloud.package.packages.apps) contacts calendar;
-    };
-    # extraAppsEnable = true;
+    appstoreEnable = null;
+    extraApps =
+      let
+        ncApps = config.services.nextcloud.package.packages.apps;
+      in
+      {
+        inherit (ncApps) contacts calendar;
+      };
+    extraAppsEnable = true;
 
     config = {
       dbtype = "pgsql";
@@ -40,12 +45,18 @@ in
       adminuser = "shreyas";
       adminpassFile = config.sops.secrets.${admin-password}.path;
     };
-    settings = { };
-    caching.redis = true;
-    phpOptions = {
-      "redis.host" = "localhost";
-      "redis.port" = 6379;
+    occ = { };
+    settings = {
+      trusted_domains = [
+        "cloud.minocha.family"
+      ];
+
+      defaultApp = "files";
+
+      "simpleSignUpLink.shown" = false;
+      "newUser.sendEmail" = false;
     };
+    caching.redis = true;
   };
 
   sops.secrets.${db-password} = {
