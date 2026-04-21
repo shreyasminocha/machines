@@ -6,6 +6,7 @@
       "shreyas" = {
         isDefault = true;
         extensions = [ mypkgs.thunderbird-addons.tbkeys-lite ];
+        withExternalGnupg = true;
         settings = {
           "browser.crashReports.unsubmittedCheck.autoSubmit2" = false;
           "datareporting.healthreport.uploadEnabled" = false;

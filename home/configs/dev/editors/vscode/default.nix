@@ -16,7 +16,7 @@ in
     };
   };
 
-  catppuccin.vscode.enable = true;
+  catppuccin.vscode.profiles.default.enable = true;
 
   home.file.".config/codium-flags.conf".text = ''
     --ozone-platform-hint=auto

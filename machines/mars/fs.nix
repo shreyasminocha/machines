@@ -48,8 +48,13 @@
     fsType = "ext4";
   };
 
-  # maybe this is causing the crashes?
-  # zramSwap.enable = true;
+  zramSwap.enable = false;
+
+  # hopefully fixes swap issues??
+  # 2^33
+  boot.extraModprobeConfig = ''
+    options zfs zfs_arc_max=8589934592
+  '';
 
   services.zfs = {
     autoScrub.enable = true;

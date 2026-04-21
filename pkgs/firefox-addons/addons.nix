@@ -52,20 +52,20 @@
       platforms = platforms.all;
     };
   };
-  "greasemonkey" = buildFirefoxXpiAddon {
-    pname = "greasemonkey";
-    version = "4.13";
-    addonId = "{e4a8a97b-f2ed-450b-b12d-ee082ba24781}";
-    url = "https://addons.mozilla.org/firefox/downloads/file/4332091/greasemonkey-4.13.xpi";
-    sha256 = "31b9e9521eac579114ed20616851f4f984229fbe6d8ebd4dc4799eb48c59578c";
+  "violentmonkey" = buildFirefoxXpiAddon {
+    pname = "violentmonkey";
+    version = "2.35.0";
+    addonId = "{aecec67f-0d10-4fa7-b7c7-609a2db280cf}";
+    url = "https://addons.mozilla.org/firefox/downloads/file/4704557/violentmonkey-2.35.0.xpi";
+    sha256 = "00d6ed07f730e4f5e15395d9a204ea91dff4e06e70c51f0df11edf54dc645ec9";
     meta = with lib; {
-      homepage = "http://www.greasespot.net/";
-      description = "Customize the way a web page displays or behaves, by using small bits of JavaScript.";
+      homepage = "https://violentmonkey.github.io/";
+      description = "An open source userscript manager.";
       license = licenses.mit;
       mozPermissions = [
         "<all_urls>"
         "clipboardWrite"
-        "cookies"
+        "contextMenus"
         "downloads"
         "notifications"
         "storage"

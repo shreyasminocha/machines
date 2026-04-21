@@ -9,6 +9,7 @@ let
 
   files = [
     # ./copilot.nix
+    ./claude.nix
     # ./cpp.nix
     ./cspell.nix
     ./css.nix
@@ -82,8 +83,6 @@ in
 
       unifiedjs.vscode-mdx
       # ocamllabs.ocaml-platform
-
-      anthropic.claude-code
 
       tamarin-prover.tamarin-prover
 

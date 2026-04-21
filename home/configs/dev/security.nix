@@ -26,6 +26,8 @@
 
       john
 
+      certbot
+
       inputs.pwndbg.packages.${system}.pwndbg
     ]
     ++ lib.optionals gui [

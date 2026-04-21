@@ -80,7 +80,10 @@ in
   "Mod+c".action.spawn = vscode;
   "Mod+t".action.spawn = typora;
   "Mod+space".action.spawn = fuzzel;
-  "Mod+semicolon".action.spawn = swaylock;
+  "Mod+semicolon".action.spawn = [
+    "loginctl"
+    "lock-session"
+  ];
 
   "Mod+e".action = toggle-column-tabbed-display;
 

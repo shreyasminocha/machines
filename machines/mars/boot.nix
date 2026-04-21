@@ -34,5 +34,7 @@
       allowHibernation = true;
       forceImportRoot = false;
     };
+
+    crashDump.enable = true;
   };
 }

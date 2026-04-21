@@ -26,6 +26,9 @@
       bleachbit
 
       pandoc
+      pdftk
+      poppler
+
       pkgs-unstable.harper
       mypkgs.harper-cli
       pkgs-unstable.rendercv # TODO: switch to stable once it has 2.7
@@ -46,7 +49,6 @@
 
         libreoffice-qt
         calibre
-        poppler
 
         keepassxc
 

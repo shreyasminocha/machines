@@ -22,6 +22,7 @@
       gimp3
 
       pkgs-unstable.audacity
+      kdePackages.kdenlive
       handbrake
 
       pavucontrol

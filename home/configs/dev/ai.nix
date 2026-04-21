@@ -27,4 +27,6 @@
       hooks = { };
     };
   };
+
+  programs.codex.enable = true;
 }

@@ -22,7 +22,13 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-    impermanence.url = "github:nix-community/impermanence";
+    impermanence = {
+      url = "github:nix-community/impermanence";
+      # > Note that this project has nixpkgs and home-manager as dependencies
+      # > for development, but these are not needed when using the module.
+      inputs.nixpkgs.follows = "";
+      inputs.home-manager.follows = "";
+    };
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +39,7 @@
     };
 
     catppuccin = {
-      url = "github:catppuccin/nix";
+      url = "github:catppuccin/nix/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -79,6 +85,7 @@
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
       # TODO: get rid of this overlay
       mypkgs = import ./pkgs { inherit pkgs; };
+      secretpkgs = secrets.packages.${system};
     in
     {
       formatter.${system} = nixpkgs.legacyPackages.${system}.nixfmt-tree;
@@ -95,6 +102,7 @@
               system
               pkgs-unstable
               mypkgs
+              secretpkgs
               secrets
               ;
             outputs = self;

@@ -15,7 +15,7 @@
     source-sans-pro
     source-serif-pro
     source-code-pro
-    helvetica-neue-lt-std
+    # helvetica-neue-lt-std
 
     lohit-fonts.devanagari
 

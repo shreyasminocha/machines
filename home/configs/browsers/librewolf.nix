@@ -35,11 +35,12 @@
           bitwarden
           zotero-connector
           vimium
-          greasemonkey
+          violentmonkey
           awesome-rss
         ];
         force = true;
         settings = {
+          "{d7742d87-e61d-4b78-b8a1-b469842139fa}".settings = secrets.lib.vimium;
           "uBlock0@raymondhill.net".settings = {
             userSettings = {
               advancedUserEnabled = true;
@@ -163,7 +164,7 @@
       "browser.theme.content-theme" = 0;
       "browser.theme.toolbar-theme" = 0;
       "extensions.webextensions.uuids" = builtins.toJSON {
-        "{e4a8a97b-f2ed-450b-b12d-ee082ba24781}" = "6a202489-4914-4b34-842d-c1d11242d207";
+        "{aecec67f-0d10-4fa7-b7c7-609a2db280cf}" = "6a202489-4914-4b34-842d-c1d11242d207";
         "{d7742d87-e61d-4b78-b8a1-b469842139fa}" = "84cbcd69-f2f4-4a43-b682-aff593496582";
         "{446900e4-71c2-419f-a6a7-df9c091e268b}" = "dd1f5437-0282-4899-b61b-6267eec59b99";
         "{97d566da-42c5-4ef4-a03b-5a2e5f7cbcb2}" = "1b16567a-e4e3-4f9f-bcf6-542f0f81e312";
@@ -227,6 +228,8 @@
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
     };
   };
+
+  home.file.".local/share/userscripts".source = secrets.packages.${system}.userscripts;
 
   catppuccin.librewolf.enable = true;
 }
