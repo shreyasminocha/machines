@@ -23,6 +23,7 @@
     nerd-fonts.fira-code
 
     lmodern
+    comic-neue
   ];
 
   fonts = {

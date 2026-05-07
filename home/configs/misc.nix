@@ -30,8 +30,9 @@
       poppler
 
       pkgs-unstable.harper
-      mypkgs.harper-cli
       pkgs-unstable.rendercv # TODO: switch to stable once it has 2.7
+
+      discordchatexporter-cli
     ]
     ++ lib.optionals gui (
       with kdePackages;
