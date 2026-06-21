@@ -2,10 +2,12 @@
 {
   home.packages = with pkgs; [
     nodejs_24
+    deno
+
     bun
     pnpm
 
-    nodePackages_latest.prettier
+    prettier
 
     jqp
     yq

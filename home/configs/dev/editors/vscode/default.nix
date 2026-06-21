@@ -1,6 +1,11 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  pkgs-unstable,
+  lib,
+  ...
+}:
 let
-  vscode = pkgs.vscodium;
+  vscode = pkgs-unstable.vscodium;
   extensions = import ./extensions { inherit pkgs lib vscode; };
   settings = import ./settings { inherit pkgs lib; };
 in
@@ -17,9 +22,4 @@ in
   };
 
   catppuccin.vscode.profiles.default.enable = true;
-
-  home.file.".config/codium-flags.conf".text = ''
-    --ozone-platform-hint=auto
-    --enable-wayland-ime
-  '';
 }

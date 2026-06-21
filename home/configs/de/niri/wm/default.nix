@@ -43,8 +43,11 @@
         };
       };
       environment = { };
-      switch-events.lid-close.action.spawn = lib.getExe config.programs.swaylock.package;
-      screenshot-path = "~/documents/screenshots/screenshot-%Y-%m-%d-%H%M%S-%f.png";
+      switch-events.lid-close.action.spawn = [
+        "loginctl"
+        "lock-session"
+      ];
+      screenshot-path = "~/documents/screenshots/screenshot-%Y-%m-%d-%H%M%S.png";
 
       binds = import ./binds.nix { inherit config pkgs lib; };
       spawn-at-startup = import ./spawn.nix { inherit config pkgs lib; };

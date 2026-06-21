@@ -110,22 +110,22 @@
         amazon = {
           icon = "cart";
           color = "yellow";
-          id = 0;
+          id = 1;
         };
         "rice google" = {
           icon = "fingerprint";
           color = "blue";
-          id = 1;
+          id = 2;
         };
         "sm7 google" = {
           icon = "fingerprint";
           color = "purple";
-          id = 2;
+          id = 3;
         };
         wrek = {
           icon = "briefcase";
           color = "orange";
-          id = 3;
+          id = 4;
         };
       };
       userChrome = ''
@@ -228,8 +228,6 @@
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
     };
   };
-
-  home.file.".local/share/userscripts".source = secrets.packages.${system}.userscripts;
 
   catppuccin.librewolf.enable = true;
 }

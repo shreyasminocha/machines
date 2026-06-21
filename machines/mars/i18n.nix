@@ -1,5 +1,7 @@
 {
-  time.timeZone = "US/Eastern";
+
+  # "Changing timezone via systemd is not supported when it is set in NixOS configuration."
+  time.timeZone = null;
 
   i18n = {
     # defaultLocale = "en_US";

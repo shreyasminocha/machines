@@ -8,8 +8,10 @@
   {
     argv = [
       (lib.getExe pkgs.swaybg)
+      "-m"
+      "center"
       "-i"
-      "/home/shreyas/secret-flake/wallpaper.jpg"
+      "/home/shreyas/secret-flake/wallpaper.png"
     ];
   }
   { argv = [ (lib.getExe config.programs.waybar.package) ]; }

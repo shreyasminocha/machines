@@ -5,7 +5,10 @@
   ...
 }:
 let
-  inherit (pkgs.forVSCodeVersion vscode.version) vscode-marketplace;
+  normalizedVersion = builtins.concatStringsSep "." (
+    map (p: builtins.elemAt (builtins.match "0*([0-9]+)" p) 0) (lib.splitString "." vscode.version)
+  ); # hotfix for broken semver somewhere
+  inherit (pkgs.forVSCodeVersion normalizedVersion) vscode-marketplace;
 
   files = [
     # ./copilot.nix

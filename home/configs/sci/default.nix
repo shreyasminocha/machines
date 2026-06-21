@@ -16,5 +16,6 @@
     bc
     sage
     pympress
+    anki
   ];
 }

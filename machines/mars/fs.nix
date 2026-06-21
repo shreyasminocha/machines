@@ -46,6 +46,7 @@
   fileSystems."/mnt/plexus" = {
     device = "UUID=99b99604-0b95-49c7-a61c-3f0738fcb89f";
     fsType = "ext4";
+    options = [ "nofail" ];
   };
 
   zramSwap.enable = false;
@@ -60,6 +61,8 @@
     autoScrub.enable = true;
     trim.enable = true;
   };
+
+  systemd.oomd.enable = true;
 
   services.smartd = {
     enable = true;
@@ -106,6 +109,7 @@
       "/etc/machine-id"
       "/etc/resolv.conf"
       "/etc/adjtime"
+      "/etc/localtime"
 
       "/var/lib/systemd/random-seed"
       "/var/lib/logrotate.status"
