@@ -10,7 +10,7 @@ let
   settings = import ./settings { inherit pkgs lib; };
 in
 {
-  programs.vscode = {
+  programs.vscodium = {
     enable = true;
     package = vscode;
     mutableExtensionsDir = false;
@@ -21,5 +21,5 @@ in
     };
   };
 
-  catppuccin.vscode.profiles.default.enable = true;
+  catppuccin.vscodium.profiles.default.enable = true;
 }

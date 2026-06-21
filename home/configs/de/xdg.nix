@@ -97,6 +97,7 @@
       in
       {
         enable = true;
+        setSessionVariables = true;
 
         desktop = "${homeDir}/desktop";
         documents = "${homeDir}/documents";

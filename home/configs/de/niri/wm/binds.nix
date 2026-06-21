@@ -10,7 +10,7 @@ let
   brightnessctl = lib.getExe pkgs.brightnessctl;
   playerctl = lib.getExe pkgs.playerctl;
   librewolf = lib.getExe config.programs.librewolf.package;
-  vscode = lib.getExe config.programs.vscode.package;
+  vscode = lib.getExe config.programs.vscodium.package;
   kitty = lib.getExe config.programs.kitty.package;
   typora = lib.getExe pkgs.typora;
   fuzzel = lib.getExe config.programs.fuzzel.package;

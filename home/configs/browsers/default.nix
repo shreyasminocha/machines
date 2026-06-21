@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports = [ ./librewolf.nix ];
 
@@ -11,6 +11,8 @@
 
   programs.firefox = {
     enable = true;
+    # the new default. manual override necessary because of old `home.stateVersion`
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
   };
 
   programs.chromium = {

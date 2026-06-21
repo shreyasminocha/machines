@@ -3,6 +3,7 @@
   programs.yazi = {
     enable = true;
     enableFishIntegration = true;
+    shellWrapperName = "yy";
     plugins = with pkgs.yaziPlugins; {
       inherit
         yatline

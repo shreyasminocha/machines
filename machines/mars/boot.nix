@@ -31,7 +31,7 @@
     extraModulePackages = [ ];
 
     zfs = {
-      allowHibernation = true;
+      unsafeAllowHibernation = true;
       forceImportRoot = false;
     };
 

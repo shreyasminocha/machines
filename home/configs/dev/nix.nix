@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     nixfmt-tree
-    nixfmt-rfc-style
+    nixfmt
     nil
     nix-melt
     statix
