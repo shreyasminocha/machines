@@ -4,15 +4,14 @@
 
   programs.beets.package = pkgs-unstable.python3.pkgs.beets.override {
     pluginOverrides = {
-      alternatives = {
-        enable = true;
-        propagatedBuildInputs = [ pkgs-unstable.python3.pkgs.beets-alternatives ];
-      };
-      # TOFIX: temp disabled because the build is broken
-      #copyartifacts = {
-      #  enable = true;
-      #  propagatedBuildInputs = [ pkgs.python3.pkgs.beets-copyartifacts ];
-      #};
+      # alternatives = {
+      #   enable = false; # build is broken
+      #   propagatedBuildInputs = [ pkgs-unstable.python3.pkgs.beets-alternatives ];
+      # };
+      # copyartifacts = {
+      #   enable = false; # broken; https://github.com/adammillerio/beets-copyartifacts/pull/17
+      #   propagatedBuildInputs = [ pkgs-unstable.python3.pkgs.beets-copyartifacts ];
+      # };
     };
   };
 

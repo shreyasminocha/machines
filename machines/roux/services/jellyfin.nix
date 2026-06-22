@@ -10,6 +10,11 @@
     enable = true;
   };
 
+  users.users.jellyfin.extraGroups = [
+    "render"
+    "video"
+  ];
+
   environment.systemPackages = [
     pkgs.jellyfin
     pkgs.jellyfin-web

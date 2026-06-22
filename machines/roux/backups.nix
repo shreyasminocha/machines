@@ -25,14 +25,16 @@ in
     };
   };
 
-  # TODO: re-enable: disabled on the suspicion that it's
-  # causing my crashes
-  # services.mysqlBackup = {
-  #   location = "/var/backup/mysql";
-  # };
-  # services.postgresqlBackup = {
-  #   location = "/var/backup/postgresql";
-  # };
+  services.postgresqlBackup = {
+    enable = true;
+    location = "/var/backup/postgresql";
+  };
+
+  # Prevent pg_dumpall from causing OOM
+  systemd.services.postgresqlBackup.serviceConfig = {
+    MemoryMax = "1G";
+    MemoryHigh = "768M";
+  };
 
   services.restic.backups.b2 = {
     initialize = true;

@@ -6,7 +6,10 @@
     ];
     extraModulePackages = [ ];
 
-    zfs.devNodes = "/dev/disk/by-id";
+    zfs = {
+      forceImportRoot = false;
+      devNodes = "/dev/disk/by-id";
+    };
 
     loader.grub = {
       enable = true;
@@ -46,14 +49,16 @@
             "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAQ4LwnAkJZfyMnwQySfzlZsCBC/Alxv8S4ZGIf4g05x shreyasminocha@mars"
           ];
         };
-        udhcpc = {
-          enable = true;
-          extraArgs = [ "--timeout 30 --tryagain 20" ];
-        };
         flushBeforeStage2 = true;
       };
 
-      systemd.users.root.shell = "/bin/conspy";
+      systemd = {
+        enable = true;
+        network.networks."10-eth" = {
+          matchConfig.Name = "*";
+          networkConfig.DHCP = "yes";
+        };
+      };
     };
   };
 }

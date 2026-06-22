@@ -14,7 +14,7 @@ in
   };
 
   services.immich = {
-    enable = true;
+    enable = false;
     port = 2283;
     database = {
       user = "immich";
@@ -29,8 +29,8 @@ in
     enable = true;
   };
 
-  services.postgresql.extensions = [ pkgs.postgresql15Packages.pgvecto-rs ];
-  services.postgresql.settings.shared_preload_libraries = [ "vectors.so" ];
+  # services.postgresql.extensions = [ pkgs.postgresql15Packages.pgvecto-rs ];
+  # services.postgresql.settings.shared_preload_libraries = [ "vectors.so" ];
 
   sops.secrets.${immich-secret} = { };
 }

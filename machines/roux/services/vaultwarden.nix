@@ -5,21 +5,20 @@ in
 {
   services.caddy.virtualHosts."pwd.minocha.family" = {
     extraConfig = ''
-      reverse_proxy 172.17.0.1:${toString local-port}
+      reverse_proxy 127.0.0.1:${toString local-port}
     '';
   };
 
-  #services.vaultwarden = {
-  #  package = pkgs-unstable.vaultwarden;
-  #  enable = true;
-  #  config.ROCKET_PORT = local-port;
-  #  webVaultPackage = pkgs-unstable.vaultwarden.webvault;
-  #};
-
-  virtualisation.oci-containers.containers."vaultwarden" = {
-    image = "vaultwarden/server:1.35.4-alpine";
-    autoStart = true;
-    ports = [ "172.17.0.1:${toString local-port}:80" ];
-    volumes = [ "/var/lib/vaultwarden:/data" ];
+  # because `system.stateVersion` is 24.11, this uses /var/lib/bitwarden_rs
+  # which is a little weird
+  services.vaultwarden = {
+    enable = true;
+    package = pkgs-unstable.vaultwarden;
+    webVaultPackage = pkgs-unstable.vaultwarden.webvault;
+    domain = "https://pwd.minocha.family";
+    config.SIGNUPS_ALLOWED = false;
+    config.ROCKET_ADDRESS = "127.0.0.1";
+    config.ROCKET_PORT = local-port;
+    backupDir = "/var/backup/vaultwarden";
   };
 }

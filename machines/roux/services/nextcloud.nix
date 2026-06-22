@@ -32,7 +32,10 @@ in
         ncApps = config.services.nextcloud.package.packages.apps;
       in
       {
-        inherit (ncApps) contacts calendar;
+        inherit (ncApps)
+          contacts
+          calendar
+          ;
       };
     extraAppsEnable = true;
 

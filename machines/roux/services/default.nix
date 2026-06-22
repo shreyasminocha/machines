@@ -10,6 +10,7 @@
   };
 
   imports = [
+    ./monitoring.nix
     ./nextcloud.nix
     ./tmp.nix
     ./vaultwarden.nix
@@ -23,7 +24,7 @@
     ./snowflake.nix
     ./sonarr.nix
     ./radarr.nix
-    ./calibre.nix
+    # ./calibre.nix
     ./navidrome.nix
     ./maloja.nix
     ./archive-rice.nix
@@ -32,6 +33,7 @@
     ./tor.nix
     ./sm-onion.nix
     ./monerod.nix
+    ./oppy.nix
     # ./soju.nix
   ];
 

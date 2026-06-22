@@ -19,9 +19,10 @@ in
       EnableInsightsCollector = false;
       ListenBrainz.BaseURL = "http://127.0.0.1:42010/apis/listenbrainz/1/"; # maloja
 
-      # "ND_BACKUP_SCHEDULE" = "weekly";
-      # "ND_BACKUP_PATH" = "/var/backup/navidrome";
-      # "ND_BACKUP_COUNT" = "5";
+      Backup.Schedule = "@daily";
+      Backup.Path = "/var/backup/navidrome";
+      Backup.Count = "10";
+      Subsonic.AppendAlbumVersion = false;
     };
     environmentFile = config.sops.secrets.${navidrome-secrets}.path;
   };
