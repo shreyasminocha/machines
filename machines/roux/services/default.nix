@@ -24,6 +24,7 @@
     ./snowflake.nix
     ./sonarr.nix
     ./radarr.nix
+    ./prowlarr.nix
     # ./calibre.nix
     ./navidrome.nix
     ./maloja.nix

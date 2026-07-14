@@ -20,7 +20,7 @@ in
 
   services.nextcloud = {
     enable = true;
-    package = pkgs.nextcloud32;
+    package = pkgs.nextcloud33;
 
     hostName = "cloud.minocha.family";
     webserver = "caddy";
@@ -38,7 +38,6 @@ in
           ;
       };
     extraAppsEnable = true;
-
     config = {
       dbtype = "pgsql";
       dbuser = "nextcloud";

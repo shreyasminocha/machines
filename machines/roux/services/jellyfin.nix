@@ -10,6 +10,8 @@
     enable = true;
   };
 
+  users.users.jellyfin.isSystemUser = true;
+  users.users.jellyfin.isNormalUser = false;
   users.users.jellyfin.extraGroups = [
     "render"
     "video"
