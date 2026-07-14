@@ -82,7 +82,6 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = nixpkgs-unstable.legacyPackages.${system};
-      # TODO: get rid of this overlay
       mypkgs = import ./pkgs { inherit pkgs; };
       secretpkgs = secrets.packages.${system};
     in
@@ -138,6 +137,19 @@
               ./machines/roux
             ];
           };
+
+          felidae = nixpkgs.lib.nixosSystem {
+            inherit specialArgs;
+
+            modules = commonModules ++ [
+              inputs.disko.nixosModules.disko
+              inputs.impermanence.nixosModules.impermanence
+              secrets.nixosModules.roux # temp
+
+              ./machines/felidae
+            ];
+          };
+
         };
 
       homeConfigurations.shreyas-mars = home-manager.lib.homeManagerConfiguration {
