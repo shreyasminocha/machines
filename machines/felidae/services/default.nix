@@ -2,7 +2,7 @@
 {
   sops = {
     # if this isn't a "string to the full path", it will be added to the store
-    defaultSopsFile = "/etc/sops/secrets.yaml";
+    defaultSopsFile = "/persist/etc/sops/secrets.yaml";
     validateSopsFiles = false;
 
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];

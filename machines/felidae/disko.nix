@@ -58,7 +58,7 @@
               keyformat = "passphrase";
               keylocation = "prompt";
             };
-            mountpoint = "/";
+            # mountpoint = "/";
           };
 
           "persist" = {

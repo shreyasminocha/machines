@@ -27,4 +27,5 @@
 
   networking.useDHCP = lib.mkDefault true;
   networking.interfaces.eno1.useDHCP = true;
+  networking.interfaces.wlp0s29u1u8.useDHCP = true;
 }

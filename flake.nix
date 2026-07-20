@@ -141,7 +141,7 @@
             modules = commonModules ++ [
               inputs.disko.nixosModules.disko
               inputs.impermanence.nixosModules.impermanence
-              secrets.nixosModules.roux # temp
+              secrets.nixosModules.felidae # temp
 
               ./machines/felidae
             ];

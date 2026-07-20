@@ -9,7 +9,7 @@
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
 
-  home-manager.users.shreyas = ../../../home/roux;
+  home-manager.users.shreyas = ../../../home/felidae;
 
   home-manager.extraSpecialArgs = {
     inherit
