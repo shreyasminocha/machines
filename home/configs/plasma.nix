@@ -1,7 +1,7 @@
 {
   qt = {
     enable = true;
-    platformTheme.name = "kvantum";
+    platformTheme.name = "kde";
     style = {
       # package = pkgs.adwaita-qt;
       name = "kvantum";
@@ -20,6 +20,7 @@
       kdeglobals = {
         General.TerminalApplication = "kitty";
         Sounds.Enable = false;
+        Icons.Theme = "breeze-dark";
         General = {
           # fixed = "Source Code Pro,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";
           # font = "Noto Sans,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1";

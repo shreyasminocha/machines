@@ -5,19 +5,36 @@
         propagatedBuildInputs = old.propagatedBuildInputs ++ prev.black.optional-dependencies.jupyter;
       });
 
-      # https://github.com/rumboon/dolphin-overlay/blob/55fec3268972876890d6081d3d76a701c37c01d7/default.nix
-      # kdePackages = prev.kdePackages.overrideScope (
-      #   kfinal: kprev: {
-      #     dolphin = kprev.dolphin.overrideAttrs (oldAttrs: {
-      #       nativeBuildInputs = (oldAttrs.nativeBuildInputs or [ ]) ++ [ prev.makeWrapper ];
-      #       postInstall = (oldAttrs.postInstall or "") + ''
-      #         wrapProgram $out/bin/dolphin \
-      #             --set XDG_CONFIG_DIRS "${prev.libsForQt5.kservice}/etc/xdg:$XDG_CONFIG_DIRS" \
-      #             --run "${kprev.kservice}/bin/kbuildsycoca6 --noincremental ${prev.libsForQt5.kservice}/etc/xdg/menus/applications.menu"
-      #       '';
-      #     });
-      #   }
-      # );
+      # https://github.com/rumboon/dolphin-overlay/issues/6
+      kdePackages =
+        let
+          menuDir = prev.runCommand "kde-applications-menu" { } ''
+            mkdir -p $out/etc/xdg/menus
+            cp ${prev.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu \
+              $out/etc/xdg/menus/applications.menu
+          '';
+        in
+        prev.kdePackages
+        // {
+          dolphin = prev.symlinkJoin {
+            name = "dolphin-wrapped";
+            paths = [
+              prev.kdePackages.dolphin
+              prev.kdePackages.dolphin.dev
+            ];
+            nativeBuildInputs = [ prev.makeWrapper ];
+            postBuild = ''
+              rm $out/bin/dolphin
+              makeWrapper ${prev.kdePackages.dolphin}/bin/dolphin $out/bin/dolphin \
+                --set XDG_CONFIG_DIRS "${menuDir}/etc/xdg:$XDG_CONFIG_DIRS" \
+                --run "${prev.kdePackages.kservice}/bin/kbuildsycoca6 ${menuDir}/etc/xdg/menus/applications.menu"
+            '';
+            passthru = (prev.kdePackages.dolphin.passthru or { }) // {
+              dev = prev.kdePackages.dolphin.dev;
+            };
+          };
+        };
+
     };
   };
 }
