@@ -67,7 +67,8 @@
   services.smartd = {
     enable = true;
     devices = [
-      { device = "/dev/nvme0"; }
+      { device = "/dev/disk/by-id/nvme-WD_BLACK_SN850X_4000GB_233504802512_1"; }
+      { device = "/dev/disk/by-id/usb-_USB_DISK_3.2_07001B69A7A32E47-0:0"; }
     ];
   };
 

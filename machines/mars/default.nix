@@ -61,7 +61,6 @@
     settings =
       let
         subst = [
-          "https://pwndbg.cachix.org"
           "https://niri.cachix.org"
         ];
       in
@@ -78,7 +77,6 @@
         trusted-substituters = subst;
 
         trusted-public-keys = [
-          "pwndbg.cachix.org-1:HhtIpP7j73SnuzLgobqqa8LVTng5Qi36sQtNt79cD3k="
           "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
         ];
       };

@@ -1,7 +1,6 @@
 {
   pkgs,
   pkgs-unstable,
-  mypkgs,
   gui,
   ...
 }:
@@ -20,6 +19,8 @@
       p7zip
       ouch
       file
+      dex
+      smartmontools
 
       backblaze-b2
       qrencode
@@ -37,6 +38,9 @@
     ++ lib.optionals gui (
       with kdePackages;
       [
+        plasma-integration
+        breeze-icons
+
         dolphin
         kio
         kio-fuse
@@ -57,6 +61,7 @@
         kubo
 
         monero-gui
+        bisq2
       ]
     );
 

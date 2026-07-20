@@ -11,7 +11,7 @@ in
     templates.snapshots = {
       hourly = 24;
       daily = 30;
-      monthly = 12;
+      monthly = 6;
       autoprune = true;
       autosnap = true;
     };
@@ -21,6 +21,10 @@ in
     datasets."zroot" = {
       recursive = "zfs";
       useTemplate = [ "snapshots" ];
+    };
+
+    datasets."zroot/nix" = {
+      useTemplate = [ "exclude" ];
     };
   };
 

@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   home.packages = with pkgs; [
     # flagged by the health check
@@ -10,6 +10,7 @@
 
   programs.nixvim = {
     enable = true;
+    nixpkgs.source = inputs.nixpkgs;
 
     viAlias = true;
     vimAlias = true;

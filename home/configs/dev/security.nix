@@ -16,6 +16,7 @@
       checkra1n
       android-tools
       frida-tools
+      ipsw
 
       pwntools
       wabt
@@ -27,8 +28,6 @@
       john
 
       certbot
-
-      inputs.pwndbg.packages.${system}.pwndbg
     ]
     ++ lib.optionals gui [
       # inputs.ida-free.legacyPackages.${system}.ida-free

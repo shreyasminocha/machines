@@ -7,7 +7,6 @@
       "ls" = "eza";
       "l" = "eza -la";
       "tree" = "tre";
-      "gdb" = "pwndbg";
       "vsc" = "codium";
       "melt" = "nix-melt";
       "ffs" = "sudo";

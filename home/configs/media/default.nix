@@ -14,9 +14,12 @@
     with pkgs;
     [
       ffmpeg
+      dvdbackup
       internetarchive
     ]
     ++ lib.optionals gui [
+      vlc
+
       kdePackages.kolourpaint
       inkscape
       gimp3

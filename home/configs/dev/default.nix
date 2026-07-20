@@ -37,5 +37,6 @@
     jujutsu
     http-server
     pkgs-unstable.tamarin-prover
+    optipng
   ];
 }
